@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/reset.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <title>GitStalker</title>
+</head>
+<body>
+    <svg id="svgbackground" width="954" height="634" viewBox="0 0 954 634" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M610 -25.6667C419.94 -25.6667 266 125.693 266 312.371C266 461.753 364.556 588.43 501.21 633.093C518.41 636.275 524.717 625.812 524.717 616.839C524.717 608.812 524.43 587.542 524.287 559.363C428.597 579.745 408.416 514.012 408.416 514.012C392.764 474.997 370.146 464.562 370.146 464.562C338.985 443.607 372.554 444.037 372.554 444.037C407.097 446.387 425.243 478.867 425.243 478.867C455.917 530.553 505.768 515.617 525.433 506.989C528.529 485.116 537.387 470.238 547.22 461.781C470.823 453.325 390.528 424.257 390.528 294.741C390.528 257.847 403.858 227.689 425.931 204.039C422.061 195.497 410.451 161.125 428.941 114.571C428.941 114.571 457.751 105.512 523.541 149.229C551.061 141.718 580.301 137.991 609.541 137.819C638.781 137.991 668.021 141.718 695.541 149.229C760.901 105.512 789.711 114.571 789.711 114.571C808.201 161.125 796.591 195.497 793.151 204.039C815.081 227.689 828.411 257.847 828.411 294.741C828.411 424.601 748.001 453.181 671.461 461.495C683.501 471.643 694.681 492.369 694.681 524.045C694.681 569.281 694.251 605.631 694.251 616.61C694.251 625.468 700.271 636.046 717.901 632.663C855.53 588.287 954 461.523 954 312.371C954 125.693 799.974 -25.6667 610 -25.6667Z" fill="#FF9C65"/>
+
+    </svg>
+    <header>
+        <svg xmlns="http://www.w3
+        .org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        <h1>GitStalker</h1>
+
+    </header>
+    <div class="loader" id="loader"></div>
+    <main>
+        <div id="barradepesquisa">
+            <input placeholder="Pesquisar por nome ou usuário" type="text">
+            <button onclick="carregarUsers()" >Pesquisar</button>
+        </div>
+
+        <div id="users">
+            <div class="user" id="user1">
+                <img src="https://avatars2.githubusercontent.com/u/5284292?s=400&u=55a986baea9aab7d8f176691fddaebe3cda8a2d9&v=4" alt="avatar">
+                <div class="userinfo">
+                    <h2>Cleber Augusto</h2>
+                    <p>Location: Piracicaba <br>Seguidores: 123</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+                </div>
+            </div>
+            <a href="google.com.br" target="blank">
+            <div class="user">
+                <img src="https://avatars0.githubusercontent.com/u/62650296?s=400&u=9cf79ee0afac743a5c0e221a97a0668000d9f6d8&v=4" alt="avatar">
+                <div class="userinfo">
+                    <h2>Guilherme Sperandio</h2>
+                    <p>Location: Piracicaba <br>Seguidores: 123</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+                </div>
+            </div>
+          </a>
+            <div class="user">
+                <img src="https://avatars3.githubusercontent.com/u/67432473?s=400&u=6d9b3868857d00598213be2a5e9b66537b4660d6&v=4" alt="avatar">
+                <div class="userinfo">
+                    <h2>Matheus Corrêa</h2>
+                    <p>Location: Piracicaba</p>
+                    <p>Seguidores: 123</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <script src="/js/script.js"></script>
+    <script src="/js/carregar.js"></script>
+</body>
+</html>
