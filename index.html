@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/reset.css">
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>GitStalker</title>
 </head>
 <body>
@@ -21,8 +22,8 @@
     <div class="loader" id="loader"></div>
     <main>
         <div id="barradepesquisa">
-            <input placeholder="Pesquisar por nome ou usuário" type="text">
-            <button onclick="carregarUsers()" >Pesquisar</button>
+            <input placeholder="Pesquisar por nome ou usuário" type="text" name="filtro" id="filtrar-users">
+            <button id="buscarUsers">Pesquisar</button>
         </div>
 
         <div id="users">
@@ -35,15 +36,15 @@
                 </div>
             </div>
             <a href="google.com.br" target="blank">
-            <div class="user">
-                <img src="https://avatars0.githubusercontent.com/u/62650296?s=400&u=9cf79ee0afac743a5c0e221a97a0668000d9f6d8&v=4" alt="avatar">
-                <div class="userinfo">
-                    <h2>Guilherme Sperandio</h2>
-                    <p>Location: Piracicaba <br>Seguidores: 123</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
-                </div>
-            </div>
-          </a>
+              <div class="user">
+                  <img src="https://avatars0.githubusercontent.com/u/62650296?s=400&u=9cf79ee0afac743a5c0e221a97a0668000d9f6d8&v=4" alt="avatar">
+                  <div class="userinfo">
+                      <h2>Guilherme Sperandio</h2>
+                      <p>Location: Piracicaba <br>Seguidores: 123</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+                  </div>
+              </div>
+            </a>
             <div class="user">
                 <img src="https://avatars3.githubusercontent.com/u/67432473?s=400&u=6d9b3868857d00598213be2a5e9b66537b4660d6&v=4" alt="avatar">
                 <div class="userinfo">
@@ -57,7 +58,9 @@
         </div>
 
     </main>
-    <script src="/js/script.js"></script>
-    <script src="/js/carregar.js"></script>
+    <script src="/src/js/script.js"></script>
+    <script src="/src/js/carregar.js"></script>
+    <script src="/src/js/filtro.js"></script>
+    <script src="/src/js/buscarusers.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-const carregarUsers = function () {
-  var user = GerarUser(gerarElementos());
+const carregarUsers = function (users) {
+  var user = GerarUser(gerarElementos(), users);
   document.querySelector("#users").appendChild(user.divuser);
 }
 
@@ -18,11 +18,8 @@ var gerarElementos = () => {
   return elementos;
 }
 
-var GerarUser = (elementos) => {
-
+var GerarUser = (elementos, dados) => {
   var user = elementos;
-
-  console.log(user);
 
   user.divuserinfo.classList.add("userinfo");
   user.divuser.classList.add("user");
@@ -34,8 +31,8 @@ var GerarUser = (elementos) => {
   user.svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
   user.svg.setAttribute("viewBox", "0 0 24 24");
 
-  user.img.src = "https://avatars2.githubusercontent.com/u/5284292?s=400&u=55a986baea9aab7d8f176691fddaebe3cda8a2d9&v=4";
-  user.nome.textContent = "Estou testando";
+  user.img.src = `${dados.avatar_url}`;
+  user.nome.textContent = dados.login;
   user.loc.textContent = `Location: Piracicaba`;
   user.seguidores.textContent = "Seguidores: 123";
 
