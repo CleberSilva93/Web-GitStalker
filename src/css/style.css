@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
 
 body {
-    margin: auto;
-    width: 800px;
-    background-color: #848382;
+  margin: auto;
+  width: 800px;
+  background-color: #848382;
 }
 
 a {
@@ -12,135 +12,128 @@ a {
 }
 
 svg#svgbackground {
-    position: absolute;
-    opacity: 0.06;
-    right: 0px;
+  position: absolute;
+  opacity: 0.06;
+  right: 0px;
 }
 
 header {
-    width: 157px;
-    font-size: 25px;
-    display: inline-flex;
-    background: #FF9C65;
-    justify-content: center;
-    color: white;
-    margin: 50px 0 50px;
-    border-radius: 10px;
-    padding: 10px;
+  width: 157px;
+  font-size: 25px;
+  display: inline-flex;
+  background: #ff9c65;
+  justify-content: center;
+  color: white;
+  margin: 50px 0 50px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-header h1{
-    font-family: 'Roboto Slab', serif;
-    margin-left: 5px;
+header h1 {
+  font-family: 'Roboto Slab', serif;
+  margin-left: 5px;
 }
-header svg{
-    fill: white;
+header svg {
+  fill: white;
 }
 
-div#barradepesquisa{
-    position: relative;
-    width: 820px;
-    height: 40px;
-    margin-bottom: 35px;
-    box-sizing: border-box;
+main {
+  box-sizing: content-box;
+  width: 100%;
 }
 
 div#barradepesquisa input {
-    height: 95%;
-    width: 600px;
-    background: #FFFFFF;
-    padding: 0 0 0 10px;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  left: -2px;
+  margin-bottom: 35px;
+  padding: 0 10px;
 }
 
-input::placeholder{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+input::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
 }
 
-div#barradepesquisa button {
-    height: 103.5%;
-    width: 206px;
-    font-weight: bold;
-    margin-left: -4px;
-    border: 0 none;
-    background: #FF9C65;
-    transition: 2s active;
-}
-
-div#barradepesquisa button:active{
-    top: 2px;
-    background: #ff5900e7;
-    color: white;
+div#barradepesquisa input:focus {
+  border-color: rgba(229, 103, 23, 0.8);
+  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset,
+    0 0 8px rgba(229, 103, 23, 0.6);
+  outline: 0 none;
 }
 
 .user {
-    position: relative;
-    background-color: white;
-    padding: 10px;
-    width: 100%;
-    margin-top: 10px;
-    display: inline-flex;
-    transition: 1s all;
-    max-height: 80px;
+  position: relative;
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10px;
+  display: inline-flex;
+  transition: 1s all;
+  max-height: 80px;
 }
 
 .user:hover {
-    color: #FF9C65;
-    fill: #FF9C65;
-    background: rgb(95, 95, 95);
-    transform: scale(1.15);
+  color: #ff9c65;
+  fill: #ff9c65;
+  background: rgb(95, 95, 95);
+  transform: scale(1.15);
 }
 
-.user img{
-    width: 80px;
-    height: 80px;
-    border-radius: 40%;
+.user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 40%;
 }
 
 .user h2 {
-    font-size: 22px;
-    font-family: 'Roboto Slab', serif;
+  font-size: 22px;
+  font-family: 'Roboto Slab', serif;
 }
 
 .userinfo {
-    position: relative;
-    margin: 12px 0 0 20px;
-
+  position: relative;
+  margin: 12px 0 0 20px;
 }
 
-.user svg{
-    position: relative;
-    height: 14px;
-    width: 14px;
-    left: 650px;
-    bottom: 33px;
+.user svg {
+  position: relative;
+  height: 14px;
+  width: 14px;
+  left: 650px;
+  bottom: 33px;
 }
 
-.user:hover{
-    cursor: pointer;
+.user:hover {
+  cursor: pointer;
 }
-
 
 .loader {
-    position: absolute;
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    left: 45%;
-    top: 45%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-    visibility: hidden;
-  }
+  position: absolute;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #ff9c65; /* Blue */
+  border-radius: 50%;
+  z-index: 10;
+  left: 45%;
+  top: 45%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  visibility: hidden;
+  transition: visibility 100ms;
+}
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-
-
-  .invisible {
-    display: none;
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+.invisible {
+  display: none;
+}
