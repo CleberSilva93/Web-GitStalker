@@ -8,9 +8,10 @@ var gerarElementos = () => {
     divuser: document.createElement('div'),
     img: document.createElement('img'),
     divuserinfo: document.createElement('div'),
-    nome: document.createElement('h2'),
+    nome: document.createElement('h3'),
     loc: document.createElement('p'),
     seguidores: document.createElement('p'),
+    tipo: document.createElement('p'),
     link: document.createElement('a'),
     svg: document.createElementNS(
       'http://www.w3.org/2000/svg',
@@ -29,8 +30,9 @@ var GerarUser = (elementos, dados) => {
 
   user.divuserinfo.classList.add('userinfo');
   user.divuser.classList.add('user');
+  user.divuser.setAttribute('id', dados.url);
 
-  user.link.setAttribute('href', 'google.com.br');
+  user.link.setAttribute('href', dados.url);
   user.path.setAttributeNS(
     null,
     'd',
@@ -43,9 +45,11 @@ var GerarUser = (elementos, dados) => {
   user.svg.setAttribute('viewBox', '0 0 24 24');
 
   user.img.src = `${dados.avatar_url}`;
-  user.nome.textContent = dados.login;
-  user.loc.textContent = `Location: Piracicaba`;
-  user.seguidores.textContent = 'Seguidores: 123';
+  user.nome.textContent =
+    dados.name == null ? dados.login : dados.name;
+  user.loc.textContent = dados.location;
+  user.seguidores.textContent = `Seguidores: ${dados.followers}`;
+  user.tipo.textContent = `Tipo: ${dados.type}`;
 
   user.svg.appendChild(user.path);
   user.link.appendChild(user.divuser);
@@ -54,6 +58,7 @@ var GerarUser = (elementos, dados) => {
   user.divuserinfo.appendChild(user.nome);
   user.divuserinfo.appendChild(user.loc);
   user.divuserinfo.appendChild(user.seguidores);
+  user.divuserinfo.appendChild(user.tipo);
 
   user.divuserinfo.appendChild(user.svg);
 

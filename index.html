@@ -11,23 +11,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>GitStalker</title>
   </head>
-  <script src="/src/js/carregarApi.js"></script>
-  <script>
-    window.onscroll = scroll;
-    function scroll() {
-      let scrollPos =
-        parseInt(
-          document.documentElement.scrollTop +
-            document.documentElement.clientHeight,
-        ) +
-          1 >=
-        document.documentElement.scrollHeight;
-      if (scrollPos === true) {
-        carregarApi();
-      }
-    }
-  </script>
-  <body onload="carregarApi()">
+  <body>
     <svg
       id="svgbackground"
       width="954"
@@ -55,8 +39,11 @@
       </svg>
       <h1>GitStalker</h1>
     </header>
-    <div class="loader" id="loader"></div>
-    <main>
+    <div id="teste">
+      <div class="loader" id="loader"></div>
+    </div>
+
+    <main id="main">
       <div id="barradepesquisa">
         <input
           placeholder="Pesquisar por nome ou usuário"
@@ -65,9 +52,18 @@
           id="filtrar-users"
         />
       </div>
+      <button onClick="ordenar()">Ordenar</button>
       <div id="users"></div>
     </main>
-    <script src="/src/js/gerarUsers.js"></script>
+
+    <script src="/src/js/carregarUsers.js"></script>
     <script src="/src/js/filtro.js"></script>
+    <script src="/src/js/scroll.js"></script>
+    <script src="/src/js/userInfo.js"></script>
+    <script src="/src/js/detalhada.js"></script>
+    <script src="/src/js/listeners.js"></script>
+    <script src="/src/js/reset.js"></script>
+    <script src="/src/js/loaders.js"></script>
+    <script src="/src/js/carregarApi.js"></script>
   </body>
 </html>
