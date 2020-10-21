@@ -11,6 +11,8 @@ var gerarElementos = () => {
     nome: document.createElement('h3'),
     loc: document.createElement('p'),
     seguidores: document.createElement('p'),
+    datacreate: document.createElement('p'),
+    numrepos: document.createElement('p'),
     tipo: document.createElement('p'),
     link: document.createElement('a'),
     svg: document.createElementNS(
@@ -31,6 +33,7 @@ var GerarUser = (elementos, dados) => {
   user.divuserinfo.classList.add('userinfo');
   user.divuser.classList.add('user');
   user.divuser.setAttribute('id', dados.url);
+  user.divuser.setAttribute('onClick', `detalhada("${dados.login}")`);
 
   user.link.setAttribute('href', dados.url);
   user.path.setAttributeNS(
@@ -50,6 +53,8 @@ var GerarUser = (elementos, dados) => {
   user.loc.textContent = dados.location;
   user.seguidores.textContent = `Seguidores: ${dados.followers}`;
   user.tipo.textContent = `Tipo: ${dados.type}`;
+  user.numrepos.textContent = `Número de repositórios: ${dados.public_repos}`;
+  user.datacreate.textContent = `Conta criada em: ${dados.created_at}`;
 
   user.svg.appendChild(user.path);
   user.link.appendChild(user.divuser);
@@ -59,6 +64,8 @@ var GerarUser = (elementos, dados) => {
   user.divuserinfo.appendChild(user.loc);
   user.divuserinfo.appendChild(user.seguidores);
   user.divuserinfo.appendChild(user.tipo);
+  user.divuserinfo.appendChild(user.numrepos);
+  user.divuserinfo.appendChild(user.datacreate);
 
   user.divuserinfo.appendChild(user.svg);
 

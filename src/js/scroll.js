@@ -1,6 +1,6 @@
 var qtd = 0;
 const scroll = async () => {
-  // loader(true);
+  loader(true);
   let scrollPos =
     parseInt(
       document.documentElement.scrollTop +
@@ -8,8 +8,10 @@ const scroll = async () => {
     ) +
       1 >=
     document.documentElement.scrollHeight;
-  if (scrollPos === true && !campoFiltro.value && !!loader()) {
+  if (scrollPos === true && !campoFiltro.value && loading) {
+    console.log('Executou');
     qtd = qtd + 5;
+    loader(true);
     await (async () => {
       for (let i = qtd; i < qtd + 5; i++) {
         let data = await (async () => {
@@ -31,9 +33,8 @@ const scroll = async () => {
         })();
         carregarUsers(data);
       }
-      console.log(qtd);
-      // loader(false);
     })();
+    loader(false);
   }
-  // loader(false);
+  loader(false);
 };

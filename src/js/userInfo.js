@@ -4,7 +4,7 @@ const userInfo = async (dados) => {
   const data = await fetch(`${dados.url}`, {
     method: 'GET',
     headers: {
-      Authorization: 'Basic ' + btoa(`${username}:${password}`),
+      Authorization: 'Bearer ' + `${token}`,
     },
   })
     .then((response) => response.json())

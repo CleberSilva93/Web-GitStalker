@@ -1,97 +1,63 @@
 var usersData = [];
-let username = 'CleberAugustz';
-let password = '*367c3721*';
+const token = '514d0c00e56228af9f28a10c30457622dde5622d';
 const carregarApi = async () => {
   if (localStorage.length == 0) {
     loader(true);
   }
-  for (let i = 1; i < 5; i++) {
-    fetch(
-      `https://api.github.com/search/users?q=location:piracicaba&per_page=100&page=${i}`,
-      {
-        method: 'GET',
-        headers: {
-          Authorization: 'Basic ' + btoa(`${username}:${password}`),
+  (() => {
+    for (let i = 1; i < 5; i++) {
+      fetch(
+        `https://api.github.com/search/users?q=location:piracicaba&per_page=100&page=${i}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: 'Bearer  ' + `${token}`,
+          },
         },
-      },
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (!(data.items == 0)) {
-          data.items.forEach((user) => {
-            usersData.push(user);
-          });
-        }
-      })
-      .catch((erro) => {
-        console.log(erro);
-        loader(false);
-      });
-  }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          if (!(data.items == 0)) {
+            data.items.forEach((user) => {
+              usersData.push(user);
+            });
+          }
+        })
+        .catch((erro) => {
+          console.log(erro);
+          loader(false);
+        });
+    }
+  })();
   loader(true);
-  setTimeout(
-    (async () => {
+  setTimeout(async () => {
+    await (async () => {
       reset();
       qtd = qtd + 5;
-
-      for (let i = 0; i < qtd; i++) {
-        let user = () => {
-          let data = !!localStorage.getItem(usersData[i].login)
-            ? (() => {
-                return JSON.parse(
-                  localStorage.getItem(usersData[i].login),
-                );
-              })()
-            : (async () => {
-                let data = userInfo(usersData[i]);
-                localStorage.setItem(
-                  data.login,
-                  JSON.stringify(data),
-                );
-                return await data;
-              })();
-          console.log(data);
-        };
-        console.log(user);
-
-        (async () => {
-          await carregarUsers(user);
-        })();
-      }
+      await (async () => {
+        for (let i = 0; i < qtd; i++) {
+          let data = await (async () => {
+            let data = !!localStorage.getItem(usersData[i].login)
+              ? (() => {
+                  return JSON.parse(
+                    localStorage.getItem(usersData[i].login),
+                  );
+                })()
+              : (async () => {
+                  let data = await userInfo(usersData[i]);
+                  localStorage.setItem(
+                    data.login,
+                    JSON.stringify(data),
+                  );
+                  return data;
+                })();
+            return data;
+          })();
+          carregarUsers(data);
+        }
+      })();
       loader(false);
-
-      // for (let i = 0; i < qtd; i++) {
-      //   (async () => {
-      //     let data = !!localStorage.getItem(usersData[i].login)
-      //       ? (() => {
-      //           return JSON.parse(
-      //             localStorage.getItem(usersData[i].login),
-      //           );
-      //         })()
-      //       : (async () => {
-      //           let data = await userInfo(usersData[i]);
-      //           localStorage.setItem(
-      //             data.login,
-      //             JSON.stringify(data),
-      //           );
-      //           return data;
-      //         })();
-      //     return data;
-      //   }).then(
-      //     ((user) => {
-      //       console.log(user);
-      //       carregarUsers(user);
-      //     })(),
-      //   )();
-      // }
-    })(),
-    2000,
-  );
+    })();
+  }, 2000);
 };
 carregarApi();
-
-// then(
-//   (() => {
-//     loader(false);
-//   })(),
-// );

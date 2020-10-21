@@ -35,8 +35,5 @@ campoFiltro.addEventListener('input', async () => {
 });
 
 window.addEventListener('scroll', async () => {
-  if (!!loader()) {
-    console.log('executa');
-    scroll();
-  }
+  scroll();
 });

@@ -7,8 +7,11 @@
       content="width=device-width, initial-scale=1.0"
     />
     <link rel="stylesheet" href="src/css/reset.css" />
-    <link rel="stylesheet" href="src/css/style.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="src/css/global.css" />
+    <link rel="stylesheet" href="src/css/modal.css" />
+    <link rel="stylesheet" href="src/css/user.css" />
+    <link rel="stylesheet" href="src/css/radiobutton.css" />
+  <link rel="icon" href="./assets/icongit.svg" type="image/x-icon" />
     <title>GitStalker</title>
   </head>
   <body>
@@ -52,18 +55,179 @@
           id="filtrar-users"
         />
       </div>
-      <button onClick="ordenar()">Ordenar</button>
+
+      <div id="ordenar">
+        <h2>Ordenação:</h2>
+        <div> <label class="switch"><input type="radio" name="ordenar" checked id="data"><span class="slider round"></span></label><span>Por data de criação</span></div>
+        <div> <label class="switch"><input type="radio" name="ordenar" id="numfollowers"><span class="slider round"></span></label><span>Número de seguidores</span></div>
+        <div> <label class="switch"><input type="radio" name="ordenar" id="numrep"><span class="slider round"></span></label><span>Número de repositórios</span></div>
+      </div>
       <div id="users"></div>
     </main>
 
+    <div class="modal" id="modal">
+      <div class="modalcontent">
+        <div class="fechar">
+          <img onclick="fecharmodal()" src="./assets/exit.svg" alt="cancel">
+
+        </div>
+        <div class="userinfomodal">
+          <div id="headermodal">
+            <div id="typeuser">
+              <img
+              src="./assets/user.svg"
+              alt="user"
+               />
+              <!-- <img
+                src="./assets/teamwork.svg"
+                alt="organazation"
+                class="icon"
+              /> -->
+            </div>
+            <div id="modalimg">
+              <img
+                src="https://avatars2.githubusercontent.com/u/69387935?v=4"
+                alt="fotodocaipora"
+              />
+            </div>
+            <div id="infomodal">
+              <div id="infomodaltitle">
+                <div  id="atributos">
+                  <div>
+                    <img
+                      src="./assets/star.svg"
+                      alt="estrela"
+                      class="estrela"
+                    />
+                    <span>10</span>
+                  </div>
+                  <div>
+                    <img
+                      src="./assets/followers.svg"
+                      alt="followers"
+                      class="icon"
+                    />
+                    <span>10</span>
+                  </div>
+                  <div>
+                    <img
+                      src="./assets/archive.svg"
+                      alt="archive"
+                      class="icon"
+                    />
+                    <span>25</span>
+                  </div>
+                </div>
+                <h2>José maria trindade</h2>
+                </span>
+              </div>
+              <div id="biomodal">
+                <h3>
+                  Eu sou um estudante de programação Brasileiro, nascido em Piracicaba, São Paulo.\r\nEstudava programação como hobby mas agora quero isso como minha carreira.
+                </h3>
+              </div>
+              <div id="infomodaldados">
+                <div class="infomodaldiv">
+                  <div>
+                    <img
+                      src="./assets/placeholder.svg"
+                      alt="location"
+                      class="icon"
+                    />
+                    <span> Piracicaba-SP/Brasil </span>
+                  </div>
+
+                  <div>
+                    <img
+                      src="./assets/email.svg"
+                      alt="e-mail"
+                      class="icon"
+                    />
+                    <span>cleber.augustz@hotmail.com</span>
+                  </div>
+                </div>
+                <div class="infomodaldiv">
+                  <p>Criação 21/01/2020</p>
+                  <p>Último update 21/01/2020</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="modalrepositorios">
+          <!-- <h1>Repositórios</h1> -->
+          <div class="repositoriosmodal">
+            <div class="repositorio">
+              <h2>Nome do repositorio</h2>
+              <p>Create 21/01/2020</p>
+              <div>
+                <img src="./assets/star.svg" alt="estrela" class="estrela" />
+                <span>10</span>
+             </div>
+            </div>
+            <div class="repositorio">
+              <h2>Nome do repositorio</h2>
+              <p>Create 21/01/2020</p>
+              <div>
+                <img src="./assets/star.svg" alt="estrela" class="estrela" />
+                <span>10</span>
+              </div>
+            </div>
+            <div class="repositorio">
+              <h2>Nome do repositorio</h2>
+              <p>Create20/10/2020</p>
+              <div>
+                <img src="./assets/star.svg" alt="estrela" class="estrela" />
+                <span>10</span>
+             </div>
+            </div>
+            <div class="repositorio">
+              <h2>Nome do repositorio</h2>
+              <p>Create20/10/2020</p>
+              <div>
+              <img src="./assets/star.svg" alt="estrela" class="estrela" />
+              <span>10</span>
+            </div>
+            </div>
+            <div class="repositorio">
+              <h2>Nome do repositorio</h2>
+              <p>Create20/10/2020</p>
+              <div>
+              <img src="./assets/star.svg" alt="estrela" class="estrela" />
+              <span>10</span>
+            </div>
+            </div>
+            <div class="repositorio">
+              <h2>Nome do repositorio</h2>
+              <p>Create20/10/2020</p>
+              <div>
+              <img src="./assets/star.svg" alt="estrela" class="estrela" />
+              <span>10</span>
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="location" hidden>
+      <div>
+        <input type="text" name="city" id="city" />
+        <!-- Vai digitar o nome da cidade, ele seleciona e quando
+        selecionar, irá iniciar o site; podendo capturar
+        automáticamente a localização -->
+      </div>
+    </div>
+
     <script src="/src/js/carregarUsers.js"></script>
+    <script src="/src/js/loaders.js"></script>
     <script src="/src/js/filtro.js"></script>
     <script src="/src/js/scroll.js"></script>
     <script src="/src/js/userInfo.js"></script>
     <script src="/src/js/detalhada.js"></script>
     <script src="/src/js/listeners.js"></script>
     <script src="/src/js/reset.js"></script>
-    <script src="/src/js/loaders.js"></script>
     <script src="/src/js/carregarApi.js"></script>
   </body>
 </html>
