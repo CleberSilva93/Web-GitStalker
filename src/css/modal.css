@@ -138,19 +138,20 @@ div#atributos div {
   justify-content: center;
   margin-right: 13px;
 }
-/*
+
 #infomodal {
-  position: relative;
-  margin-left: 20px;
-  width: auto;
-  padding: 10px;
-} */
+  /* position: relative; */
+  /* margin-left: 20px; */
+  width: 100%;
+  /* padding: 10px; */
+}
 
 div#infomodaldados {
   width: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: auto;
 }
 
 #infomodal h2 {

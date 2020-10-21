@@ -54,7 +54,11 @@ var GerarUser = (elementos, dados) => {
   user.seguidores.textContent = `Seguidores: ${dados.followers}`;
   user.tipo.textContent = `Tipo: ${dados.type}`;
   user.numrepos.textContent = `Número de repositórios: ${dados.public_repos}`;
-  user.datacreate.textContent = `Conta criada em: ${dados.created_at}`;
+  user.datacreate.textContent = `Conta criada em: ${new Date(
+    dados.created_at,
+  )
+    .toISOString()
+    .slice(0, 10)}`;
 
   user.svg.appendChild(user.path);
   user.link.appendChild(user.divuser);

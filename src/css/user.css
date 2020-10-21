@@ -7,6 +7,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
   display: inline-flex;
+  align-items: center;
   transition: 1s all;
   box-sizing: border-box;
 }
@@ -26,26 +27,26 @@
 }
 
 .user h3 {
-  font-size: 17px;
+  font-size: 18px;
   font-family: 'Roboto Slab', serif;
+  margin-bottom: 5px;
 }
 
 div.userinfo {
   position: relative;
   display: block;
-  margin: 7px 0 0 15px;
-  height: 70px;
   justify-content: space-between;
+  vertical-align: middle;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .user svg {
-  position: relative;
-  display: flex;
-  justify-content: right;
+  position: absolute;
   height: 15px;
   width: 15px;
   left: 650px;
-  bottom: 37px;
+  bottom: 20px;
 }
 
 div#teste {
