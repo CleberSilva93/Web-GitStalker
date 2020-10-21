@@ -1,6 +1,5 @@
 var usersData = [];
-let username = 'CleberAugustz';
-let password = '*367c3721*';
+
 const carregarApi = async () => {
   if (localStorage.length == 0) {
     loader(true);
