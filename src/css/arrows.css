@@ -1,0 +1,51 @@
+.arrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+div.arrow svg {
+  position: relative;
+  margin: 80px 180px 80px 0;
+  transition: transform 0.2s, fill 2s;
+  background-size: 20% 20%;
+}
+
+svg#arrowtop:hover {
+  transform: scale(1.5);
+  animation: totop 0.7s cubic-bezier(1, 0, 0, 2) infinite alternate;
+}
+
+@keyframes totop {
+  from {
+    top: 0px;
+  }
+  to {
+    top: 10px;
+  }
+}
+svg#arrowdown:hover {
+  transform: scale(1.5);
+  animation: todown 0.7s cubic-bezier(1, 0, 0, 2) infinite alternate;
+}
+
+@keyframes todown {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 10px;
+  }
+}
+
+div.arrow svg:hover path {
+  fill: #ff9c65;
+}
+
+div.arrow svg:active path {
+  fill: #e4c9bb;
+}

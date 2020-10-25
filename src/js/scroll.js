@@ -1,5 +1,6 @@
 var qtd = 0;
 const scroll = async () => {
+  console.log('Chamou');
   loader(true);
   let scrollPos =
     parseInt(
@@ -8,12 +9,19 @@ const scroll = async () => {
     ) +
       1 >=
     document.documentElement.scrollHeight;
-  if (scrollPos === true && !campoFiltro.value && loading) {
+  if (
+    scrollPos === true &&
+    !campoFiltro.value &&
+    loading &&
+    qtd < usersData.length
+  ) {
     console.log('Executou');
-    qtd = qtd + 5;
+    qtd = qtd + 8;
     loader(true);
+    reset();
+    // await newRequest();
     await (async () => {
-      for (let i = qtd; i < qtd + 5; i++) {
+      for (let i = 0; i < qtd + 8; i++) {
         let data = await (async () => {
           let data = !!localStorage.getItem(usersData[i].login)
             ? (() => {

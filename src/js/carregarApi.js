@@ -1,13 +1,12 @@
 var usersData = [];
 const token = '76b54959748e921c86ddace498c9fa0272e7c82a';
+
 const carregarApi = async () => {
-  if (localStorage.length == 0) {
-    loader(true);
-  }
+  loader(true);
   (() => {
     for (let i = 1; i < 5; i++) {
       fetch(
-        `https://api.github.com/search/users?q=location:piracicaba&per_page=100&page=${i}`,
+        `https://api.github.com/search/users?q=+location:piracicaba+sort:author-date&per_page=100&page=${i}`,
         {
           method: 'GET',
           headers: {
@@ -31,9 +30,10 @@ const carregarApi = async () => {
   })();
   loader(true);
   setTimeout(async () => {
+    loader(true);
     await (async () => {
       reset();
-      qtd = qtd + 5;
+      qtd = qtd + 8;
       await (async () => {
         for (let i = 0; i < qtd; i++) {
           let data = await (async () => {
@@ -53,11 +53,21 @@ const carregarApi = async () => {
                 })();
             return data;
           })();
+
+          (() => {
+            for (var i = 0; i < radios.length; i++) {
+              if (radios[i].checked) {
+                console.log('Escolheu: ' + radios[i].value);
+              }
+            }
+          })();
+
           carregarUsers(data);
         }
       })();
+    })().then(() => {
       loader(false);
-    })();
+    });
   }, 2000);
 };
 carregarApi();

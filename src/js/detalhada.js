@@ -1,11 +1,10 @@
 var modal = document.getElementById('modal');
 const detalhada = (dados) => {
-  console.log('Estamos testando');
-  console.log(dados);
   modal.style.opacity = '1';
   modal.style.display = 'flex';
   document.querySelector('body').style.overflow = 'hidden';
 
+  let type = document.getElementById('type');
   let photo = document.getElementById('photo');
   let following = document.getElementById('following');
   let followers = document.getElementById('followers');
@@ -17,16 +16,27 @@ const detalhada = (dados) => {
   let createddata = document.getElementById('createddata');
   let lastupdated = document.getElementById('lastupdated');
 
+  // remove
+  let divemail = document.getElementById('divemail');
   let user = JSON.parse(localStorage.getItem(dados));
-  console.log(user.following);
-
-  following.textContent = user.following;
-  followers.textContent = user.followers;
-  repos.textContent = user.public_repos;
+  type.setAttribute(
+    'src',
+    user.type == 'User'
+      ? './assets/user.svg'
+      : './assets/teamwork.svg',
+  );
+  photo.setAttribute('src', user.avatar_url);
+  following.textContent = `Seguindo: ${user.following}`;
+  followers.textContent = `Seguidores: ${user.followers}`;
+  repos.textContent = `Repositórios: ${user.public_repos}`;
   name.textContent = user.name == null ? user.login : user.name;
   bio.textContent = user.bio == null ? '   ' : user.bio;
   city.textContent = user.location;
-  email.textContent = user.email;
+  email.textContent = !!user.email
+    ? 'Entrou aqui'
+    : (() => {
+        divemail.remove();
+      })();
   createddata.textContent = `Cadastro - ${new Date(user.created_at)
     .toISOString()
     .slice(0, 10)}`;

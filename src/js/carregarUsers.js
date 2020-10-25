@@ -44,7 +44,6 @@ var GerarUser = (elementos, dados) => {
   user.svg.setAttribute('width', '24');
   user.svg.setAttribute('height', '24');
   user.svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-
   user.svg.setAttribute('viewBox', '0 0 24 24');
 
   user.img.src = `${dados.avatar_url}`;
@@ -54,7 +53,7 @@ var GerarUser = (elementos, dados) => {
   user.seguidores.textContent = `Seguidores: ${dados.followers}`;
   user.tipo.textContent = `Tipo: ${dados.type}`;
   user.numrepos.textContent = `Número de repositórios: ${dados.public_repos}`;
-  user.datacreate.textContent = `Conta criada em: ${new Date(
+  user.datacreate.textContent = `Cadastro: ${new Date(
     dados.created_at,
   )
     .toISOString()
