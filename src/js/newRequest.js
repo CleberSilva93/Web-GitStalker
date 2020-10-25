@@ -1,5 +1,5 @@
-await (async () => {
-  for (let i = qtd; i < qtd + 5; i++) {
+const newRequest = async () => {
+  for (let i = qtd; i < qtd + 8; i++) {
     let data = await (async () => {
       let data = !!localStorage.getItem(usersData[i].login)
         ? (() => {
@@ -16,4 +16,4 @@ await (async () => {
     })();
     carregarUsers(data);
   }
-})();
+};

@@ -18,10 +18,10 @@ const scroll = async () => {
     console.log('Executou');
     qtd = qtd + 8;
     loader(true);
-    reset();
+    // reset();
     // await newRequest();
     await (async () => {
-      for (let i = 0; i < qtd + 8; i++) {
+      for (let i = qtd; i < qtd + 8; i++) {
         let data = await (async () => {
           let data = !!localStorage.getItem(usersData[i].login)
             ? (() => {
