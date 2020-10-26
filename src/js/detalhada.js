@@ -16,7 +16,6 @@ const detalhada = (dados) => {
   let createddata = document.getElementById('createddata');
   let lastupdated = document.getElementById('lastupdated');
 
-  // remove
   let divemail = document.getElementById('divemail');
   let user = JSON.parse(localStorage.getItem(dados));
   type.setAttribute(
@@ -30,12 +29,15 @@ const detalhada = (dados) => {
   followers.textContent = `Seguidores: ${user.followers}`;
   repos.textContent = `Repositórios: ${user.public_repos}`;
   name.textContent = user.name == null ? user.login : user.name;
-  bio.textContent = user.bio == null ? '   ' : user.bio;
+  bio.textContent = user.bio == null ? user.login : user.bio;
   city.textContent = user.location;
   email.textContent = !!user.email
-    ? 'Entrou aqui'
+    ? (() => {
+        divemail.style.visibility = 'visible';
+        return user.email;
+      })()
     : (() => {
-        divemail.remove();
+        divemail.style.visibility = 'hidden';
       })();
   createddata.textContent = `Cadastro - ${new Date(user.created_at)
     .toISOString()

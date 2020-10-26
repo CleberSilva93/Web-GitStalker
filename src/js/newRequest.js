@@ -16,4 +16,5 @@ const newRequest = async () => {
     })();
     carregarUsers(data);
   }
+  qtd = qtd + 8;
 };

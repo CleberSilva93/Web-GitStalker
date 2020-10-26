@@ -55,14 +55,31 @@
           name="filtro"
           id="filtrar-users"
         />
+        <div class="radios">
+          <h2>Filtro:</h2>
+          <div id="radiobuttontype">
+            <label class="switch2">
+              <input type="checkbox" name="user" value="user" id="user">
+              <span class="slider2 round"></span>
+            </label>
+            <span>User</span>
+          </div>
+          <div id="radiobuttontype">
+            <label class="switch2">
+              <input type="checkbox" name="org" value="org" id="org">
+              <span class="slider2 round"></span>
+            </label>
+              <span>Organization</span>
+          </div>
+        </div>
       </div>
 
       <div id="ordenar">
         <h2>Ordenação:</h2>
         <div><label class="switch"><input type="radio" name="ordenar" value="name" id="ordenar"><span class="slider round"></span></label><span>Por nome</span></div>
-        <div><label class="switch"><input type="radio" name="ordenar" value="data" id="ordenar"><span class="slider round"></span></label><span>Por data de criação</span></div>
-        <div><label class="switch"><input type="radio" name="ordenar" value="numfollowers" id="ordenar"><span class="slider round"></span></label><span>Número de seguidores</span></div>
-        <div><label class="switch"><input type="radio" name="ordenar" value="numrep"id="ordenar"><span class="slider round"></span></label><span>Número de repositórios</span></div>
+        <div><label class="switch"><input type="radio" name="ordenar" value="data" id="ordenar"><span class="slider round"></span></label><span>Por data de cadastro</span></div>
+        <div><label class="switch"><input type="radio" name="ordenar" value="numfollowers" id="ordenar"><span class="slider round"></span></label><span>Por número de seguidores</span></div>
+        <div><label class="switch"><input type="radio" name="ordenar" value="numrep"id="ordenar"><span class="slider round"></span></label><span>Por número de repositórios</span></div>
       </div>
       <div id="users"></div>
     </main>
@@ -71,7 +88,6 @@
       <div class="modalcontent">
         <div class="fechar">
           <img onclick="fecharmodal()" src="./assets/exit.svg" alt="cancel">
-
         </div>
         <div class="userinfomodal">
           <div id="headermodal">
@@ -185,7 +201,7 @@
     </div>
 
     <div class="arrow">
-      <svg id='arrowtop' width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg onclick="arrow('down')" id='arrowtop' width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clip-path="url(#clip0)">
         <path d="M36.1606 29.6213C35.7753 29.2218 35.1453 29.2112 34.7468 29.5975L27.5008 36.6015L28.1002 1.02051C28.1095 0.46759 27.6701 0.0131238 27.1172 0.00380842C26.5643 -0.00550698 26.1098 0.4339 26.1005 0.986821L25.5011 36.5678L18.4961 29.3237C18.1118 28.9242 17.4799 28.9136 17.0823 29.2999C16.6848 29.6823 16.6741 30.3142 17.0585 30.7127L25.7415 39.6923C25.8319 39.7868 25.9416 39.8607 26.0618 39.9137C26.1839 39.9668 26.3124 39.9959 26.4434 39.9981C26.5744 40.0003 26.7038 39.9755 26.8277 39.9266C26.9495 39.8776 27.0617 39.8075 27.1553 39.7161L36.1368 31.0341C36.5333 30.6488 36.544 30.0169 36.1606 29.6213Z" fill="black"/>
         <path d="M40.5659 12.8982L37.5473 12.8473L35.4016 12.8112L33.4229 12.7778L33.4019 12.7775L33.4018 12.7825C32.8607 12.7844 32.4154 13.2159 32.4062 13.7609C32.397 14.3058 32.8276 14.7521 33.3683 14.7732L33.3682 14.7772L33.3892 14.7776L35.368 14.8109L37.5136 14.8471L40.5322 14.8979C43.1049 14.9412 45.1663 17.0713 45.1229 19.6459L44.6625 46.97C44.6192 49.5447 42.4872 51.604 39.9145 51.5607L12.5904 51.1004C10.0168 51.057 7.95637 48.927 7.99975 46.3524L8.46009 19.0282C8.50347 16.4536 10.6345 14.3942 13.2081 14.4376L16.2257 14.4884L18.3714 14.5245L20.3501 14.5579L20.3711 14.5582L20.3711 14.5542C20.9133 14.5514 21.3576 14.1198 21.3668 13.5749C21.3759 13.031 20.9464 12.5857 20.4047 12.5635L20.4048 12.5585L20.3838 12.5582L18.4051 12.5248L16.2584 12.4887L13.2408 12.4378C9.56331 12.3759 6.52133 15.317 6.45938 18.9945L5.99903 46.3186C5.93707 49.9961 8.87825 53.0381 12.5557 53.1001L39.8798 53.5604C43.5573 53.6224 46.5993 50.6812 46.6613 47.0037L47.1216 19.6796C47.1846 16.0021 44.2424 12.9601 40.5659 12.8982Z" fill="black"/>
@@ -196,7 +212,7 @@
         </clipPath>
         </defs>
         </svg>
-        <svg id='arrowdown' width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg onclick="arrow('up')" id='arrowdown' width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0)">
           <path d="M18.1493 24.7912C18.5379 25.1876 19.1679 25.193 19.5633 24.8034L26.7512 17.7398L26.4458 53.3245C26.441 53.8775 26.8842 54.3283 27.4371 54.333C27.9901 54.3378 28.4409 53.8946 28.4457 53.3416L28.7511 17.757L35.8157 24.9429C36.2033 25.3392 36.8353 25.3446 37.2296 24.955C37.624 24.5694 37.6294 23.9374 37.2418 23.542L28.4849 14.6346C28.3937 14.5408 28.2833 14.4678 28.1627 14.4158C28.0402 14.3637 27.9114 14.3356 27.7804 14.3345C27.6494 14.3334 27.5202 14.3593 27.3968 14.4092C27.2753 14.4592 27.1637 14.5302 27.0709 14.6224L18.1615 23.3783C17.7681 23.7669 17.7627 24.3989 18.1493 24.7912Z" fill="black"/>
           <path d="M13.8823 41.5502L16.9012 41.5761L19.0472 41.5945L21.0261 41.6115L21.0471 41.6117L21.0471 41.6067C21.5882 41.6004 22.0299 41.1651 22.0346 40.6202C22.0393 40.0752 21.6051 39.6324 21.0642 39.6158L21.0642 39.6118L21.0432 39.6116L19.0643 39.5946L16.9184 39.5762L13.8995 39.5503C11.3266 39.5282 9.24766 37.4153 9.26976 34.8404L9.5043 7.51339C9.5264 4.93849 11.6413 2.86157 14.2142 2.88365L41.5412 3.11819C44.1151 3.14028 46.193 5.25319 46.1709 7.82809L45.9364 35.1551C45.9143 37.73 43.8004 39.8069 41.2265 39.7848L38.2086 39.7589L36.0627 39.7405L34.0838 39.7235L34.0628 39.7233L34.0627 39.7273C33.5206 39.7347 33.0799 40.1699 33.0752 40.7149C33.0705 41.2589 33.5038 41.7006 34.0456 41.7183L34.0456 41.7233L34.0666 41.7235L36.0455 41.7404L38.1924 41.7589L41.2103 41.7848C44.8882 41.8163 47.9058 38.8501 47.9373 35.1723L48.1719 7.84526C48.2034 4.1674 45.2372 1.14983 41.5594 1.11827L14.2324 0.88373C10.5545 0.852164 7.53694 3.81837 7.50537 7.49624L7.27083 34.8232C7.23827 38.5011 10.2055 41.5187 13.8823 41.5502Z" fill="black"/>
@@ -223,5 +239,6 @@
     <script src="/src/js/newRequest.js"></script>
     <script src="/src/js/carregarApi.js"></script>
     <script src="/src/js/ordenar.js"></script>
+    <script src="/src/js/arrow.js"></script>
   </body>
 </html>

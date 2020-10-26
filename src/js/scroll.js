@@ -12,11 +12,12 @@ const scroll = async () => {
     scrollPos === true &&
     !campoFiltro.value &&
     loading &&
-    qtd < usersData.length
+    qtd + 8 < usersData.length
   ) {
-    qtd = qtd + 8;
+    if (qtd > usersData.length) {
+      qtd = usersData.length;
+    }
     loader(true);
-    // reset();
     await newRequest();
     loader(false);
   }

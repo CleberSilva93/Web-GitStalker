@@ -21,7 +21,6 @@ const ordenar = (tipo) => {
                 return await request(b);
               })()
             : JSON.parse(localStorage.getItem(b.login));
-        console.log(tipo);
         if (tipo === 'name') {
           first.name = first.name == null ? first.login : first.name;
           second.name =
@@ -44,20 +43,19 @@ const ordenar = (tipo) => {
           return 0;
         }
         if (tipo === 'followers') {
-          if (first.followers > second.followers) {
+          if (first.followers < second.followers) {
             return 1;
           }
-          if (first.followers < second.followers) {
+          if (first.followers > second.followers) {
             return -1;
           }
           return 0;
         }
         if (tipo === 'repos') {
-          console.log('Entrou aqui');
-          if (first.public_repos > second.public_repos) {
+          if (first.public_repos < second.public_repos) {
             return 1;
           }
-          if (first.public_repos < second.public_repos) {
+          if (first.public_repos > second.public_repos) {
             return -1;
           }
           return 0;
