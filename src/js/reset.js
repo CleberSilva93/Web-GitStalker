@@ -1,7 +1,7 @@
 var main = document.getElementsByTagName('main');
 
 const reset = () => {
-  // qtd = 6;
+  console.log('Entrou1');
   document.getElementById('users').remove();
   let div = document.createElement('div');
   div.setAttribute('id', 'users');

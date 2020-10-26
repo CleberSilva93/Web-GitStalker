@@ -14,6 +14,7 @@ const newRequest = async () => {
           })();
       return data;
     })();
+    console.log('Chega até aqui');
     carregarUsers(data);
   }
 };
