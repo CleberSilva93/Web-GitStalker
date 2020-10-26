@@ -1,7 +1,5 @@
-// let username = 'CleberAugustz';
-// let password = '*367c3721*';
-const userInfo = async (dados) => {
-  const data = await fetch(`${dados.url}`, {
+const userInfo = (dados) => {
+  const data = fetch(`${dados.url}`, {
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + `${token}`,

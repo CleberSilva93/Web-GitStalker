@@ -39,23 +39,32 @@ window.addEventListener('scroll', () => {
   scroll();
 });
 
-for (var el of radios) {
-  el.addEventListener('click', async function () {
-    if (this.value === 'data') {
-      loader(true);
-      await ordenar();
-      // console.log(usersData);
-      qtd = 0;
-      reset();
-      await newRequest();
-      loader(false);
-    }
+let ordenacao = (tipo) => {
+  ordenar(tipo);
+  reset();
+  setTimeout(() => {
+    qtd = 0;
 
+    newRequest();
+    loader(false);
+  }, 10000);
+};
+for (var el of radios) {
+  el.addEventListener('click', function () {
+    campoFiltro.value = '';
+    loader(true);
+    if (this.value === 'data') {
+      ordenacao('data');
+    }
     if (this.value === 'numrep') {
-      console.log('Por repositório');
+      console.log('Entrou no num rep');
+      ordenacao('repos');
     }
     if (this.value === 'numfollowers') {
-      console.log('Por número de seguidores');
+      ordenacao('followers');
+    }
+    if (this.value === 'name') {
+      ordenacao('name');
     }
   });
 }
