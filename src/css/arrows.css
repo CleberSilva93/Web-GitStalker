@@ -9,6 +9,8 @@
 }
 
 div.arrow svg {
+  height: 47px;
+  width: 47px;
   position: relative;
   margin: 80px 180px 80px 0;
   transition: transform 0.2s, fill 2s;

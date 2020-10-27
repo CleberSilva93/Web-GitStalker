@@ -17,13 +17,14 @@
   color: #ff9c65;
   fill: #ff9c65;
   background: rgb(95, 95, 95);
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .user img {
-  width: 80px;
-  height: 80px;
-  border-radius: 40%;
+  width: 120px;
+  height: 120px;
+  margin: 0px 13px;
+  border-radius: 50%;
 }
 
 .user h3 {
@@ -34,19 +35,27 @@
 
 div.userinfo {
   position: relative;
-  display: block;
-  justify-content: space-between;
-  vertical-align: middle;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
   margin-left: 10px;
+}
+
+div.userinfogeral {
+  position: relative;
+}
+
+div.userinfogeral div {
+  display: flex;
+  flex-direction: column-reverse;
+  line-height: 20px;
 }
 
 .user svg {
   position: absolute;
   height: 15px;
   width: 15px;
-  left: 650px;
-  bottom: 39px;
+  left: 580px;
+  bottom: 49px;
 }
 
 div#teste {

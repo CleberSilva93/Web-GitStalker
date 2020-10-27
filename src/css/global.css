@@ -78,13 +78,12 @@ div.radios {
   height: 50px;
   padding: 3px;
   background-color: white;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 div.radios h2 {
-  font-size: 13px;
-  font-weight: 600;
-  /* margin-left: 5px; */
+  font-size: 15px;
+  font-weight: 500;
 }
 div.radios span {
   margin-left: 2px;
@@ -174,7 +173,7 @@ div#ordenar {
   display: inline-flex;
   width: 100%;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 14px;
 }
 div#ordenar div {
   position: relative;
@@ -186,23 +185,28 @@ div#ordenar span {
 }
 
 div#ordenar h2 {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   margin-left: 5px;
 }
 
-.loader {
+/* .loader {
   position: fixed;
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #ff9c65;
+  border: 20px solid #f3f3f3;
+  border-top: 20px solid #ff9c65;
   border-radius: 50%;
   z-index: 10;
   left: 45%;
   top: 45%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
+  width: 180px;
+  height: 180px;
+  animation: spin 3s linear infinite;
   transition: visibility 100ms;
+} */
+
+div.loader img {
+  width: 80px;
+  height: 80px;
 }
 
 @keyframes spin {

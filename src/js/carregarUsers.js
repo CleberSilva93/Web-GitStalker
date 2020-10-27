@@ -8,6 +8,9 @@ var gerarElementos = () => {
     divuser: document.createElement('div'),
     img: document.createElement('img'),
     divuserinfo: document.createElement('div'),
+    divusergeral: document.createElement('div'),
+    divuserinfoleft: document.createElement('div'),
+    divuserinforight: document.createElement('div'),
     nome: document.createElement('h3'),
     loc: document.createElement('p'),
     seguidores: document.createElement('p'),
@@ -31,6 +34,7 @@ var GerarUser = (elementos, dados) => {
   var user = elementos;
 
   user.divuserinfo.classList.add('userinfo');
+  user.divusergeral.classList.add('userinfogeral');
   user.divuser.classList.add('user');
   user.divuser.setAttribute('id', dados.url);
   user.divuser.setAttribute('onClick', `detalhada("${dados.login}")`);
@@ -63,13 +67,17 @@ var GerarUser = (elementos, dados) => {
   user.link.appendChild(user.divuser);
   user.divuser.appendChild(user.img);
   user.divuser.appendChild(user.divuserinfo);
-  user.divuserinfo.appendChild(user.nome);
-  user.divuserinfo.appendChild(user.loc);
-  user.divuserinfo.appendChild(user.seguidores);
-  user.divuserinfo.appendChild(user.tipo);
-  user.divuserinfo.appendChild(user.numrepos);
-  user.divuserinfo.appendChild(user.datacreate);
+  user.divusergeral.appendChild(user.nome);
+  user.divusergeral.appendChild(user.divuserinfoleft);
+  user.divusergeral.appendChild(user.divuserinforight);
 
+  user.divuserinforight.appendChild(user.loc);
+  user.divuserinfoleft.appendChild(user.seguidores);
+  user.divuserinfoleft.appendChild(user.tipo);
+
+  user.divuserinfoleft.appendChild(user.numrepos);
+  user.divuserinforight.appendChild(user.datacreate);
+  user.divuserinfo.appendChild(user.divusergeral);
   user.divuserinfo.appendChild(user.svg);
 
   return user;

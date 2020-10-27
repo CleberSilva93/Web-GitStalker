@@ -18,8 +18,9 @@
 .modalcontent {
   position: relative;
   width: auto;
-  max-width: 820px;
-  left: 9px;
+  max-width: 800px;
+  min-width: 800px;
+  /* left: 9px; */
   top: auto;
   margin: auto;
 }
@@ -186,6 +187,7 @@ div.infomodaldiv div {
   flex-direction: row;
   align-items: center;
   margin-right: 10px;
+  max-width: 300px;
 }
 
 div.infomodaldiv div + div {
