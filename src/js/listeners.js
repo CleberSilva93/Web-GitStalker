@@ -8,8 +8,8 @@ var org = document.getElementById('org');
 var campovazio = async () => {
   reset();
   for (let i = 0; i < qtd; i++) {
-    let users = await localStorageGetItem(usersData[i].login);
-    await carregarUsers(users);
+    let user = await localStorageGetItem(usersData[i].login);
+    await GerarUsers(user);
   }
 };
 
@@ -64,11 +64,11 @@ for (var el of radios) {
     campoFiltro.value = '';
     loaderOrdem(true);
     ordenar(this.value).then(() => {
-      console.log('Ta esperando ordenar');
       reset();
       qtd = 0;
-      // newRequest();
+      newRequest(usersData);
       loaderOrdem(false);
+      ShowToast(`Ordenado por ${this.id}`);
     });
   });
 }

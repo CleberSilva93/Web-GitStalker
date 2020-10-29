@@ -22,13 +22,12 @@ const carregarApi = async () => {
             data.items.forEach((user) => {
               usersData.push(user);
             });
-            localStorageSetItem('');
-            // return data;
           });
       } catch (error) {
         console.log(error);
         loader(false);
       }
+      localStorageSetItem('usersData', usersData);
     }
   })();
 };

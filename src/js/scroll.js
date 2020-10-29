@@ -18,7 +18,7 @@ const scroll = async () => {
       qtd = usersData.length;
     }
     loader(true);
-    await newRequest();
+    await newRequest(usersData);
     loader(false);
   }
   loader(false);

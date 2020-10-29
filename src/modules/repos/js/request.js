@@ -5,6 +5,7 @@ const request = async (user) => {
       })()
     : (async () => {
         let data = await userInfo(user);
+        console.log(data);
         localStorageSetItem(data.login, data);
         return data;
       })();

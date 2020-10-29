@@ -15,10 +15,12 @@
     <link rel="stylesheet" href="src/css/loader.css" />
     <link rel="stylesheet" href="src/css/loaderordem.css" />
     <link rel="stylesheet" href="src/css/barraDePesquisa.css" />
+    <link rel="stylesheet" href="src/css/toast.css" />
   <link rel="icon" href="./assets/icongit.svg" type="image/x-icon" />
     <title>GitStalker</title>
   </head>
   <body>
+    <div id="snackbar"></div>
     <svg
       id="svgbackground"
       width="954"
@@ -46,6 +48,7 @@
       </svg>
       <h1>GitStalker</h1>
     </header>
+
     <div id="divloading">
       <div class="loader" id="loader">
         <!-- <img src="./assets/icongit.svg" alt="giticon"> -->
@@ -62,6 +65,7 @@
     </div>
 
     <main id="main">
+
       <div id="barradepesquisa">
         <input
           placeholder="Pesquisar por nome ou usuário"
@@ -102,10 +106,10 @@
       </div>
       <div id="ordenar">
           <h2>Ordenação:</h2>
-          <div><label class="switch"><input type="radio" name="ordenar" value="name" id="ordenar"><span class="slider round"></span></label><span>Por nome</span></div>
-          <div><label class="switch"><input type="radio" name="ordenar" value="data" id="ordenar"><span class="slider round"></span></label><span>Por data de cadastro</span></div>
-          <div><label class="switch"><input type="radio" name="ordenar" value="followers" id="ordenar"><span class="slider round"></span></label><span>Por número de seguidores</span></div>
-          <div><label class="switch"><input type="radio" name="ordenar" value="repos"id="ordenar"><span class="slider round"></span></label><span>Por número de repositórios</span></div>
+          <div><label class="switch"><input type="radio" name="ordenar" value="name" id="nome"><span class="slider round"></span></label><span>Por nome</span></div>
+          <div><label class="switch"><input type="radio" name="ordenar" value="data" id="data"><span class="slider round"></span></label><span>Por data de cadastro</span></div>
+          <div><label class="switch"><input type="radio" name="ordenar" value="followers" id="seguidores"><span class="slider round"></span></label><span>Por número de seguidores</span></div>
+          <div><label class="switch"><input type="radio" name="ordenar" value="repos"id="repositório"><span class="slider round"></span></label><span>Por número de repositórios</span></div>
       </div>
       <div id="users"></div>
     </main>
@@ -117,18 +121,15 @@
         </div>
         <div class="userinfomodal">
           <div id="headermodal">
-            <div id="typeuser">
-              <img
-              src="./assets/user.svg"
-              alt="user"
-              id="type"
-               />
-            </div>
+
             <div id="modalimg">
               <img id="photo"
                 src="https://avatars2.githubusercontent.com/u/69387935?v=4"
                 alt="fotodocaipora"
               />
+              <div id="typeuser">
+                <span id='badge' class="badge"></span>
+              </div>
             </div>
             <div id="infomodal">
               <div id="infomodaltitle">
@@ -195,17 +196,7 @@
           </div>
         </div>
         <div id="modalrepositorios">
-          <div class="repositoriosmodal">
-            <div class="repositorio">
-              <div>
-                <h2>Nome do repositorio</h2>
-                <p>Create 21/01/2020</p>
-              </div>
-              <div>
-                <img src="./assets/star.svg" alt="estrela" class="estrela" />
-                <span>10</span>
-             </div>
-            </div>
+          <div class="repositoriosmodal" id="repositoriosmodal">
           </div>
 
         </div>
@@ -246,21 +237,27 @@
         </svg>
     </div>
 
-    <script src="/src/js/carregarUsers.js"></script>
-    <script src="/src/js/request.js"></script>
-    <script src="/src/js/searchUser.js"></script>
+    <script src="/src/modules/users/js/gerarUsers.js"></script>
+    <script src="/src/modules/users/js/request.js"></script>
+    <script src="/src/modules/users/js/searchUser.js"></script>
     <script src="/src/js/loaders.js"></script>
-    <script src="/src/js/filtro.js"></script>
+    <script src="/src/modules/users/js/filtro.js"></script>
     <script src="/src/js/scroll.js"></script>
-    <script src="/src/js/userInfo.js"></script>
-    <script src="/src/js/detalhada.js"></script>
+    <script src="/src/modules/users/js/apiUser.js"></script>
+    <script src="/src/js/toast.js"></script>
+    <script src="/src/js/modal.js"></script>
     <script src="/src/js/listeners.js"></script>
     <script src="/src/js/reset.js"></script>
-    <script src="/src/js/newRequest.js"></script>
+    <script src="/src/modules/users/js/newRequest.js"></script>
     <script src="/src/js/api/api.js"></script>
     <script src="/src/js/ordenar.js"></script>
     <script src="/src/js/utils.js"></script>
     <script src="/src/js/arrow.js"></script>
     <script src="/src/js/index.js"></script>
+    <script src="/src/modules/repos/js/index.js"></script>
+    <script src="/src/modules/repos/js/apiRepos.js"></script>
+    <script src="/src/modules/repos/js/gerarRepos.js"></script>
+    <script src="/src/modules/repos/js/newRequestRepos.js"></script>
+    <!-- <script src="/src/modules/repos/js/requestRepos.js"></script> -->
   </body>
 </html>

@@ -11,7 +11,7 @@ const filtro = async (input) => {
         expressao.test(user.login)) &&
       (tipo == '' ? true : user.type == tipo)
     ) {
-      carregarUsers(user);
+      GerarUsers(user);
     }
   };
   if (input.value.length > 0) {

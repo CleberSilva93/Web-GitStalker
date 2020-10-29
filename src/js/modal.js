@@ -1,9 +1,9 @@
 var modal = document.getElementById('modal');
-const detalhada = (dados) => {
+const openModal = (dados) => {
   modal.style.display = 'flex';
   document.querySelector('body').style.overflow = 'hidden';
 
-  let type = document.getElementById('type');
+  let type = document.getElementById('badge');
   let photo = document.getElementById('photo');
   let following = document.getElementById('following');
   let followers = document.getElementById('followers');
@@ -17,12 +17,20 @@ const detalhada = (dados) => {
 
   let divemail = document.getElementById('divemail');
   let user = JSON.parse(localStorage.getItem(dados));
-  type.setAttribute(
-    'src',
-    user.type == 'User'
-      ? './assets/user.svg'
-      : './assets/teamwork.svg',
-  );
+
+  openRepos(user);
+  user.type == 'User'
+    ? (() => {
+        type.classList.add('badge__user');
+        type.classList.remove('badge__organization');
+        type.textContent = 'User';
+      })()
+    : (() => {
+        type.classList.remove('badge__user');
+        type.classList.add('badge__organization');
+        type.textContent = 'Organization';
+      })();
+
   photo.setAttribute('src', user.avatar_url);
   following.textContent = `Seguindo: ${user.following}`;
   followers.textContent = `Seguidores: ${user.followers}`;
@@ -35,8 +43,15 @@ const detalhada = (dados) => {
         divemail.style.visibility = 'visible';
         return user.email;
       })()
+    : !!user.blog
+    ? (() => {
+        divemail.style.visibility = 'visible';
+        divemail.childNodes[1].src = './assets/blog.svg';
+        return user.blog;
+      })()
     : (() => {
         divemail.style.visibility = 'hidden';
+        return;
       })();
   createddata.textContent = `Cadastro - ${new Date(user.created_at)
     .toISOString()
@@ -48,12 +63,14 @@ const detalhada = (dados) => {
 };
 
 const fecharmodal = () => {
+  currentpage = 0;
   document.querySelector('.modal').style.display = 'none';
   document.querySelector('body').style.overflow = 'visible';
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
+    currentpage = 0;
     modal.style.display = 'none';
     document.querySelector('body').style.overflow = 'visible';
   }

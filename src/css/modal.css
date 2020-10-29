@@ -93,8 +93,10 @@
 div#modalimg {
   position: relative;
   display: flex;
+  flex-direction: column;
   margin: auto 0 auto;
   width: auto;
+  align-items: center;
 }
 
 #modalimg img {
@@ -106,18 +108,27 @@ div#modalimg {
 
 div#typeuser {
   position: absolute;
-  top: 20px;
-  left: 40px;
+  bottom: 5px;
   z-index: 10;
 }
 
-div#typeuser img {
-  position: relative;
-  padding: 5px;
-  width: 25px;
-  height: 25px;
-  background: #8483823f;
-  border-radius: 50%;
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  background: gray;
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px 5px;
+}
+
+.badge__user {
+  background: rgba(233, 85, 85, 0.671);
+  color: #fff;
+}
+
+.badge__organization {
+  background: rgba(24, 158, 24, 0.431);
+  color: #fff;
 }
 
 div#infomodaltitle {
@@ -191,8 +202,12 @@ div.infomodaldiv div {
   max-width: 300px;
 }
 
-div.infomodaldiv div + div {
-  /* margin-right: 10px; */
+span#email {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+  max-width: 300px;
 }
 
 div.infomodaldiv span {
@@ -236,9 +251,13 @@ div#modalrepositorios h1 {
   padding: 10px;
 }
 
-.repositorio div {
+div.repositorio div {
   display: flex;
   flex-direction: column;
+}
+
+div.stars {
+  align-items: center;
 }
 
 .repositorio h2 {
