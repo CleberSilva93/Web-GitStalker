@@ -1,7 +1,6 @@
-var modal = document.getElementById('modal');
 const openModal = (dados) => {
   modal.style.display = 'flex';
-  document.querySelector('body').style.overflow = 'hidden';
+  body.style.overflow = 'hidden';
 
   let type = document.getElementById('badge');
   let photo = document.getElementById('photo');
@@ -14,8 +13,6 @@ const openModal = (dados) => {
   let email = document.getElementById('email');
   let createddata = document.getElementById('createddata');
   let lastupdated = document.getElementById('lastupdated');
-
-  let divemail = document.getElementById('divemail');
   let user = JSON.parse(localStorage.getItem(dados));
 
   openRepos(user);
@@ -64,14 +61,14 @@ const openModal = (dados) => {
 
 const fecharmodal = () => {
   currentpage = 0;
-  document.querySelector('.modal').style.display = 'none';
-  document.querySelector('body').style.overflow = 'visible';
+  modal.style.display = 'none';
+  body.style.overflow = 'visible';
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
     currentpage = 0;
     modal.style.display = 'none';
-    document.querySelector('body').style.overflow = 'visible';
+    body.style.overflow = 'visible';
   }
 };

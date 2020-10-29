@@ -1,6 +1,6 @@
 const GerarUsers = (users) => {
   var user = GerarUser(gerarElementos(), users);
-  document.querySelector('#users').appendChild(user.divuser);
+  divusers.appendChild(user.divuser);
 };
 
 var gerarElementos = () => {

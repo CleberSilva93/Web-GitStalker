@@ -1,6 +1,3 @@
-// let spinnerText = document.getElementById('spinner-text');
-// let spinner = document.getElementById('spinner');
-
 const apiRepos = async (dados) => {
   const data = await fetch(`${dados}`, {
     method: 'GET',

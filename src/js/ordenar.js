@@ -1,5 +1,4 @@
 const ordenar = async (tipo) => {
-  console.log('Iniciou');
   await Promise.all(
     usersData.map(async (a) => {
       if (!localStorageGetItem(a.login)) {
@@ -10,7 +9,7 @@ const ordenar = async (tipo) => {
   );
   usersData.sort((a, b) => {
     let { first, second } = searchUser(a, b);
-    // alterar a propriedade para dinâmica para poder alterar forme o tipo
+    // alterar a propriedade para dinâmica para poder alterar conforme o tipo
     if (tipo === 'name') {
       first.name = first.name == null ? first.login : first.name;
       second.name = second.name == null ? second.login : second.name;

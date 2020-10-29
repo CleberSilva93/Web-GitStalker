@@ -1,10 +1,3 @@
-var campoFiltro = document.querySelector('#filtrar-users');
-var radios = document.getElementsByName('ordenar');
-var wrapperdws = document.getElementById('dws');
-
-var user = document.getElementById('user');
-var org = document.getElementById('org');
-
 var campovazio = async () => {
   reset();
   for (let i = 0; i < qtd; i++) {

@@ -1,6 +1,3 @@
-let spinnerText = document.getElementById('spinner-text');
-let spinner = document.getElementById('spinner');
-
 const userInfo = async (dados) => {
   const data = await fetch(`${dados.url}`, {
     method: 'GET',

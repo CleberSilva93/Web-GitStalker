@@ -1,13 +1,12 @@
 var loading = false;
-
 const loader = (show) => {
   if (show) {
-    document.querySelector('body').style.overflow = 'hidden';
-    document.getElementById('divloading').style.display = 'block';
+    body.style.overflow = 'hidden';
+    divloading.style.display = 'block';
     loading = true;
   } else {
-    document.getElementById('divloading').style.display = 'none';
-    document.querySelector('body').style.overflow = 'visible';
+    divloading.style.display = 'none';
+    body.style.overflow = 'visible';
     loading = false;
   }
 };
