@@ -1,21 +1,22 @@
 var campoFiltro = document.querySelector('#filtrar-users');
 var radios = document.getElementsByName('ordenar');
+var wrapperdws = document.getElementById('dws');
 
 var user = document.getElementById('user');
 var org = document.getElementById('org');
 
-var campovazio = () => {
+var campovazio = async () => {
   reset();
   for (let i = 0; i < qtd; i++) {
-    let users = JSON.parse(localStorage.getItem(usersData[i].login));
-    carregarUsers(users);
+    let users = await localStorageGetItem(usersData[i].login);
+    await carregarUsers(users);
   }
 };
 
-campoFiltro.addEventListener('keypress', async (key) => {
+campoFiltro.addEventListener('keypress', (key) => {
   loader(true);
   if (key.which == 13) {
-    await filtro(campoFiltro);
+    filtro(campoFiltro);
   }
   if (!campoFiltro.value) {
     campovazio();
@@ -26,9 +27,10 @@ campoFiltro.addEventListener('keypress', async (key) => {
 campoFiltro.addEventListener('input', async () => {
   loader(true);
   if (!campoFiltro.value) {
-    campovazio();
+    await campovazio();
+    wrapperdws.style.display = 'none';
   } else {
-    await filtro(campoFiltro);
+    wrapperdws.style.display = 'block';
   }
   loader(false);
 });
@@ -37,43 +39,42 @@ window.addEventListener('scroll', () => {
   scroll();
 });
 
-user.addEventListener('click', () => {
+user.addEventListener('click', async () => {
+  loader(true);
   campoFiltro.value = '';
+  wrapperdws.style.display = 'none';
   if (!campoFiltro.value) {
-    campovazio();
+    await campovazio();
   }
+
+  loader(false);
 });
-org.addEventListener('click', () => {
+org.addEventListener('click', async () => {
+  loader(true);
   campoFiltro.value = '';
+  wrapperdws.style.display = 'none';
   if (!campoFiltro.value) {
-    campovazio();
+    await campovazio();
   }
+  loader(false);
 });
 
-let ordenacao = (tipo) => {
-  ordenar(tipo);
-  reset();
-  setTimeout(() => {
-    qtd = 0;
-    newRequest();
-    loader(false);
-  }, 10000);
-};
 for (var el of radios) {
   el.addEventListener('click', function () {
     campoFiltro.value = '';
-    loader(true);
-    if (this.value === 'data') {
-      ordenacao('data');
-    }
-    if (this.value === 'numrep') {
-      ordenacao('repos');
-    }
-    if (this.value === 'numfollowers') {
-      ordenacao('followers');
-    }
-    if (this.value === 'name') {
-      ordenacao('name');
-    }
+    loaderOrdem(true);
+    ordenar(this.value).then(() => {
+      console.log('Ta esperando ordenar');
+      reset();
+      qtd = 0;
+      // newRequest();
+      loaderOrdem(false);
+    });
   });
 }
+
+wrapperdws.addEventListener('click', async () => {
+  loader(true);
+  await filtro(campoFiltro);
+  loader(false);
+});

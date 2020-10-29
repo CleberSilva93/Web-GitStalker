@@ -47,55 +47,6 @@ main {
   width: 100%;
 }
 
-div#barradepesquisa input {
-  position: relative;
-  width: 100%;
-  height: 50px;
-  border: 2px solid white;
-  box-sizing: border-box;
-  margin-bottom: 5px;
-  font-size: 16px;
-  padding: 0 5px;
-}
-
-input::placeholder {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: normal;
-}
-
-div#barradepesquisa {
-  display: flex;
-  flex-direction: row;
-}
-
-div.radios {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  box-sizing: border-box;
-  margin-left: 5px;
-  height: 50px;
-  padding: 3px;
-  background-color: white;
-  font-size: 14px;
-}
-
-div.radios h2 {
-  font-size: 15px;
-  font-weight: 500;
-}
-div.radios span {
-  margin-left: 2px;
-}
-
-div#barradepesquisa input:focus {
-  border-color: rgba(229, 103, 23, 0.8);
-  box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset,
-    0 0 8px rgba(229, 103, 23, 0.6);
-  outline: 0 none;
-}
-
 div#radiobuttontype {
   display: inline-flex;
   width: auto;
@@ -104,7 +55,6 @@ div#radiobuttontype {
 
 .switch2 {
   position: relative;
-  /* margin: 0 5px; */
   display: inline-block;
   width: 20px;
   height: 11px;
@@ -168,6 +118,7 @@ div#ordenar {
   padding: 10px 5px 10px 0;
   background: white;
   margin-bottom: 17px;
+  /* height: 30px; */
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   display: inline-flex;
@@ -230,18 +181,16 @@ div.loader img {
 .estrela {
   width: 20px;
   height: 20px;
-  animation: pulse 1.2s infinite;
+  animation: estrela 1.2s infinite;
   animation-direction: alternate;
 }
 
-@keyframes pulse {
+@keyframes estrela {
   0% {
     transform: scale(1);
-    filter: brightness(100%);
   }
   100% {
     transform: scale(1.1);
-    filter: brightness(150%);
   }
 }
 

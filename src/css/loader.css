@@ -173,3 +173,16 @@
     opacity: 0;
   }
 }
+
+div#divloading {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  transition: display 100ms;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}

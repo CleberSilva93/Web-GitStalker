@@ -1,6 +1,5 @@
 var modal = document.getElementById('modal');
 const detalhada = (dados) => {
-  modal.style.opacity = '1';
   modal.style.display = 'flex';
   document.querySelector('body').style.overflow = 'hidden';
 

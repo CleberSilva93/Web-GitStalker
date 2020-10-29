@@ -1,12 +1,9 @@
 const filtro = async (input) => {
   reset();
-  let filtrando = (tipo, i) => {
-    let user =
-      JSON.parse(localStorage.getItem(usersData[i].login)) == null
-        ? (async () => {
-            return await request(usersData[i]);
-          })()
-        : JSON.parse(localStorage.getItem(usersData[i].login));
+  let filtrando = async (tipo, i) => {
+    let user = await (async () => {
+      return await request(usersData[i]);
+    })();
     let expressao = new RegExp(input.value, 'i'); // o i é para definir se é insensitive ou case-sensitive
     if (
       (expressao.test(user.name) ||

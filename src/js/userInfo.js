@@ -1,5 +1,8 @@
-const userInfo = (dados) => {
-  const data = fetch(`${dados.url}`, {
+let spinnerText = document.getElementById('spinner-text');
+let spinner = document.getElementById('spinner');
+
+const userInfo = async (dados) => {
+  const data = await fetch(`${dados.url}`, {
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + `${token}`,
@@ -9,6 +12,12 @@ const userInfo = (dados) => {
     .then((data) => {
       return data;
     })
-    .catch((erro) => console.log(erro));
+    .catch((erro) => {
+      spinner.style.display = 'none';
+      spinnerText.style.display = 'block';
+      spinnerText.style.color = 'red';
+      spinnerText.textContent =
+        'Houve um erro, atualize a página. Aperte (F5).';
+    });
   return data;
 };

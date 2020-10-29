@@ -10,8 +10,9 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 25;
-  animation-name: abrir;
-  animation-duration: 1.5s;
+  animation: abrir 1.5s;
+  /* animation-name: abrir;
+  animation-duration: 1.5s; */
   overflow-y: auto;
 }
 
