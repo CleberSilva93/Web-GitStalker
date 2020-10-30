@@ -1,23 +1,20 @@
 const GerarRepos = (repos) => {
-  let repository = GerarRepo(gerarElementosRepos(), repos);
+  let repository = GerarRepo(repos);
   repositories.appendChild(repository.divRepos);
 };
 
-var gerarElementosRepos = () => {
-  let elementos = {
-    divRepos: document.createElement('div'),
-    divInfo1: document.createElement('div'),
-    divInfo2: document.createElement('div'),
-    img: document.createElement('img'),
-    nomeRepos: document.createElement('h2'),
-    dataRepos: document.createElement('p'),
-    starRepos: document.createElement('span'),
-  };
-  return elementos;
-};
+class ElementosRepos {
+  divRepos = document.createElement('div');
+  divInfo1 = document.createElement('div');
+  divInfo2 = document.createElement('div');
+  img = document.createElement('img');
+  nomeRepos = document.createElement('h2');
+  dataRepos = document.createElement('p');
+  starRepos = document.createElement('span');
+}
 
-var GerarRepo = (elementos, dados) => {
-  let repos = elementos;
+var GerarRepo = (dados) => {
+  let repos = new ElementosRepos();
 
   repos.divRepos.classList.add('repositorio');
   repos.divInfo2.classList.add('stars');

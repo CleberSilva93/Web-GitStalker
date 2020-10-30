@@ -1,37 +1,31 @@
 const GerarUsers = (users) => {
-  var user = GerarUser(gerarElementos(), users);
+  var user = GerarUser(users);
   divusers.appendChild(user.divuser);
 };
 
-var gerarElementos = () => {
-  var elementos = {
-    divuser: document.createElement('div'),
-    img: document.createElement('img'),
-    divuserinfo: document.createElement('div'),
-    divusergeral: document.createElement('div'),
-    divuserinfoleft: document.createElement('div'),
-    divuserinforight: document.createElement('div'),
-    nome: document.createElement('h3'),
-    loc: document.createElement('p'),
-    seguidores: document.createElement('p'),
-    datacreate: document.createElement('p'),
-    numrepos: document.createElement('p'),
-    tipo: document.createElement('p'),
-    link: document.createElement('a'),
-    svg: document.createElementNS(
-      'http://www.w3.org/2000/svg',
-      'svg',
-    ),
-    path: document.createElementNS(
-      'http://www.w3.org/2000/svg',
-      'path',
-    ),
-  };
-  return elementos;
-};
+class ElementosUsers {
+  divuser = document.createElement('div');
+  img = document.createElement('img');
+  divuserinfo = document.createElement('div');
+  divusergeral = document.createElement('div');
+  divuserinfoleft = document.createElement('div');
+  divuserinforight = document.createElement('div');
+  nome = document.createElement('h3');
+  loc = document.createElement('p');
+  seguidores = document.createElement('p');
+  datacreate = document.createElement('p');
+  numrepos = document.createElement('p');
+  tipo = document.createElement('p');
+  link = document.createElement('a');
+  svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  path = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'path',
+  );
+}
 
-var GerarUser = (elementos, dados) => {
-  var user = elementos;
+var GerarUser = (dados) => {
+  var user = new ElementosUsers();
 
   user.divuserinfo.classList.add('userinfo');
   user.divusergeral.classList.add('userinfogeral');
