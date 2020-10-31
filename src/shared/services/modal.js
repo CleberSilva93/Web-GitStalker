@@ -1,21 +1,10 @@
 const openModal = (dados) => {
   modal.style.display = 'flex';
-  body.style.overflow = 'hidden';
+  document.documentElement.style.overflow = 'hidden';
 
-  let type = document.getElementById('badge');
-  let photo = document.getElementById('photo');
-  let following = document.getElementById('following');
-  let followers = document.getElementById('followers');
-  let repos = document.getElementById('repos');
-  let name = document.getElementById('name');
-  let bio = document.getElementById('bio');
-  let city = document.getElementById('city');
-  let email = document.getElementById('email');
-  let createddata = document.getElementById('createddata');
-  let lastupdated = document.getElementById('lastupdated');
   let user = JSON.parse(localStorage.getItem(dados));
-
   openRepos(user);
+
   user.type == 'User'
     ? (() => {
         type.classList.add('badge__user');
@@ -43,7 +32,7 @@ const openModal = (dados) => {
     : !!user.blog
     ? (() => {
         divemail.style.visibility = 'visible';
-        divemail.childNodes[1].src = './assets/blog.svg';
+        divemail.childNodes[1].src = './src/assets/blog.svg';
         return user.blog;
       })()
     : (() => {
@@ -62,13 +51,13 @@ const openModal = (dados) => {
 const fecharmodal = () => {
   currentpage = 0;
   modal.style.display = 'none';
-  body.style.overflow = 'visible';
+  document.documentElement.style.overflow = 'visible';
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
     currentpage = 0;
     modal.style.display = 'none';
-    body.style.overflow = 'visible';
+    document.documentElement.style.overflow = 'visible';
   }
 };

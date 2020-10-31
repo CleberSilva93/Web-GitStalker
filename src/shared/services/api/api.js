@@ -1,7 +1,11 @@
+// import loaders from './loaders.js';
+
+// let Loaders = new loaders();
 var usersData = [];
 const token = '76b54959748e921c86ddace498c9fa0272e7c82a';
 let info;
 let x = 2;
+// export default class api {
 const carregarApi = async () => {
   loader(true);
   await (async () => {
@@ -31,3 +35,4 @@ const carregarApi = async () => {
     }
   })();
 };
+// }

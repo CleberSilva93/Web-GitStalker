@@ -19,7 +19,7 @@ var GerarRepo = (dados) => {
   repos.divRepos.classList.add('repositorio');
   repos.divInfo2.classList.add('stars');
 
-  repos.img.src = './assets/star.svg';
+  repos.img.src = './src/assets/star.svg';
   repos.img.alt = 'estrela';
   repos.img.classList.add('estrela');
 

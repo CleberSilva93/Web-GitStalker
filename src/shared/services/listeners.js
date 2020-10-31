@@ -29,7 +29,20 @@ campoFiltro.addEventListener('input', async () => {
 });
 
 window.addEventListener('scroll', () => {
-  scroll();
+  let scrollPos =
+    parseInt(
+      document.documentElement.scrollTop +
+        document.documentElement.clientHeight,
+    ) +
+      1 >=
+    document.documentElement.scrollHeight;
+  if (
+    scrollPos === true &&
+    !campoFiltro.value &&
+    qtd + 8 < usersData.length
+  ) {
+    scroll();
+  }
 });
 
 user.addEventListener('click', async () => {

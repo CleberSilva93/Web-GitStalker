@@ -1,3 +1,6 @@
+// import controllocalStorage from './utils/js';
+// var ControllocalStorage = new controllocalStorage();
+
 const request = async (user) => {
   let data = !!localStorageGetItem(user.login)
     ? (() => {
@@ -5,7 +8,6 @@ const request = async (user) => {
       })()
     : (async () => {
         let data = await userInfo(user);
-        console.log(data);
         localStorageSetItem(data.login, data);
         return data;
       })();

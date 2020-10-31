@@ -6,17 +6,17 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <link rel="stylesheet" href="src/css/reset.css" />
-    <link rel="stylesheet" href="src/css/global.css" />
-    <link rel="stylesheet" href="src/css/modal.css" />
+    <link rel="stylesheet" href="src/shared/styles/reset.css" />
+    <link rel="stylesheet" href="src/shared/styles/global.css" />
+    <link rel="stylesheet" href="src/shared/styles/modal.css" />
     <link rel="stylesheet" href="src/modules/users/styles/user.css" />
-    <link rel="stylesheet" href="src/css/radiobutton.css" />
-    <link rel="stylesheet" href="src/css/arrows.css" />
-    <link rel="stylesheet" href="src/css/loader.css" />
-    <link rel="stylesheet" href="src/css/loaderordem.css" />
-    <link rel="stylesheet" href="src/css/barraDePesquisa.css" />
-    <link rel="stylesheet" href="src/css/toast.css" />
-  <link rel="icon" href="./assets/icongit.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="src/shared/styles/radiobutton.css" />
+    <link rel="stylesheet" href="src/shared/styles/arrows.css" />
+    <link rel="stylesheet" href="src/shared/styles/loader.css" />
+    <link rel="stylesheet" href="src/shared/styles/loaderordem.css" />
+    <link rel="stylesheet" href="src/shared/styles/barraDePesquisa.css" />
+    <link rel="stylesheet" href="src/shared/styles/toast.css" />
+  <link rel="icon" href="./src/assets/icongit.svg" type="image/x-icon" />
     <title>GitStalker</title>
   </head>
   <body>
@@ -51,7 +51,7 @@
 
     <div id="divloading">
       <div class="loader" id="loader">
-        <!-- <img src="./assets/icongit.svg" alt="giticon"> -->
+        <!-- <img src="./src/assets/icongit.svg" alt="giticon"> -->
         <div id="load">
           <div>G</div>
           <div>N</div>
@@ -117,7 +117,7 @@
     <div class="modal" id="modal">
       <div class="modalcontent">
         <div class="fechar">
-          <img onclick="fecharmodal()" src="./assets/exit.svg" alt="cancel">
+          <img onclick="fecharmodal()" src="./src/assets/exit.svg" alt="cancel">
         </div>
         <div class="userinfomodal">
           <div id="headermodal">
@@ -136,7 +136,7 @@
                 <div  id="atributos">
                   <div>
                     <img
-                      src="./assets/followers.svg"
+                      src="./src/assets/followers.svg"
                       alt="followers"
                       class="icon"
                     />
@@ -144,7 +144,7 @@
                   </div>
                   <div>
                     <img
-                      src="./assets/followers.svg"
+                      src="./src/assets/followers.svg"
                       alt="estrela"
                       class="icon"
                     />
@@ -152,7 +152,7 @@
                   </div>
                   <div>
                     <img
-                      src="./assets/archive.svg"
+                      src="./src/assets/archive.svg"
                       alt="archive"
                       class="icon"
                     />
@@ -171,7 +171,7 @@
                 <div class="infomodaldiv">
                   <div>
                     <img
-                      src="./assets/placeholder.svg"
+                      src="./src/assets/placeholder.svg"
                       alt="location"
                       class="icon"
                     />
@@ -180,7 +180,7 @@
 
                   <div id="divemail">
                     <img
-                      src="./assets/email.svg"
+                      src="./src/assets/email.svg"
                       alt="e-mail"
                       class="icon"
                     />
@@ -237,28 +237,31 @@
         </svg>
     </div>
 
-    <script src="/src/modules/users/js/gerarUsers.js"></script>
-    <script src="/src/modules/users/js/request.js"></script>
-    <script src="/src/modules/users/js/searchUser.js"></script>
-    <script src="/src/js/loaders.js"></script>
-    <script src="/src/modules/users/js/filtro.js"></script>
-    <script src="/src/js/scroll.js"></script>
-    <script src="/src/modules/users/js/apiUser.js"></script>
-    <script src="/src/js/getElements.js"></script>
-    <script src="/src/js/toast.js"></script>
-    <script src="/src/js/modal.js"></script>
-    <script src="/src/js/listeners.js"></script>
-    <script src="/src/js/reset.js"></script>
-    <script src="/src/modules/users/js/newRequest.js"></script>
-    <script src="/src/js/api/api.js"></script>
-    <script src="/src/js/ordenar.js"></script>
-    <script src="/src/js/utils.js"></script>
-    <script src="/src/js/arrow.js"></script>
-    <script src="/src/js/index.js"></script>
-    <script src="/src/modules/repos/js/index.js"></script>
-    <script src="/src/modules/repos/js/apiRepos.js"></script>
-    <script src="/src/modules/repos/js/gerarRepos.js"></script>
-    <script src="/src/modules/repos/js/newRequestRepos.js"></script>
-    <!-- <script src="/src/modules/repos/js/requestRepos.js"></script> -->
+    <script src="./src/modules/users/service/gerarUsers.js"></script>
+    <script src="./src/modules/users/service/request.js"></script>
+    <script src="./src/modules/users/service/searchUser.js"></script>
+    <!-- <script src="./src/shared/services/loaders.js"></script> -->
+    <script src="./src/modules/users/service/filtro.js"></script>
+    <script src="./src/shared/services/scroll.js"></script>
+    <script src="./src/modules/users/service/apiUser.js"></script>
+    <script src="./src/shared/services/getElements.js"></script>
+    <script src="./src/shared/services/toast.js"></script>
+    <script src="./src/shared/services/modal.js"></script>
+    <script src="./src/shared/services/listeners.js"></script>
+    <script src="./src/shared/services/reset.js"></script>
+    <script src="./src/modules/users/service/newRequest.js"></script>
+    <script src="./src/shared/services/api/api.js"></script>
+    <script src="./src/shared/services/ordenar.js"></script>
+    <script src="./src/shared/services/arrow.js"></script>
+    <script src="./src/shared/services/utils/controlLocalStorage.js"></script>
+    <!-- <script src="./src/js/index.js"></script> -->
+
+    <script type="module" src="./src/shared/services/index.js"></script>
+
+
+    <script src="./src/modules/repos/service/index.js"></script>
+    <script src="./src/modules/repos/service/apiRepos.js"></script>
+    <script src="./src/modules/repos/service/gerarRepos.js"></script>
+    <script src="./src/modules/repos/service/newRequestRepos.js"></script>
   </body>
 </html>

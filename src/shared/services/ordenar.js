@@ -1,9 +1,9 @@
 const ordenar = async (tipo) => {
   await Promise.all(
     usersData.map(async (a) => {
-      if (!localStorageGetItem(a.login)) {
+      if (!ControllocalStorage.localStorageGetItem(a.login)) {
         let data = await userInfo(a);
-        localStorageSetItem(data.login, data);
+        ControllocalStorage.localStorageSetItem(data.login, data);
       }
     }),
   );
