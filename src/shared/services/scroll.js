@@ -1,5 +1,7 @@
-var qtd = 0;
-const scroll = async () => {
+import { loader } from './loaders.js';
+import { newRequest } from '../../modules/users/service/newRequest.js';
+
+export const scroll = async () => {
   loader(true);
   let scrollPos =
     parseInt(

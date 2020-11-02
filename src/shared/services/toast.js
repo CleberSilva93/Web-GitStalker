@@ -1,4 +1,4 @@
-const ShowToast = (texto) => {
+export const ShowToast = (texto) => {
   var x = document.getElementById('snackbar');
   x.className = 'show';
   x.textContent = texto;

@@ -1,4 +1,4 @@
-const userInfo = async (dados) => {
+export const ApiUser = async (dados) => {
   const data = await fetch(`${dados.url}`, {
     method: 'GET',
     headers: {

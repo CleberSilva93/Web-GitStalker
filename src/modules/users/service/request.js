@@ -1,14 +1,16 @@
-// import controllocalStorage from './utils/js';
-// var ControllocalStorage = new controllocalStorage();
+import { controlLocalStorage } from '../../../shared/services/utils/controlLocalStorage.js';
+import { ApiUser } from './apiUser.js';
+var ControllocalStorage = new controlLocalStorage();
 
-const request = async (user) => {
-  let data = !!localStorageGetItem(user.login)
+export const request = async (user) => {
+  console.log('Está disparando request');
+  let data = !!ControllocalStorage.localStorageGetItem(user.login)
     ? (() => {
-        return localStorageGetItem(user.login);
+        return ControllocalStorage.localStorageGetItem(user.login);
       })()
     : (async () => {
-        let data = await userInfo(user);
-        localStorageSetItem(data.login, data);
+        let data = await ApiUser(user);
+        ControllocalStorage.localStorageSetItem(data.login, data);
         return data;
       })();
   return data;

@@ -1,27 +1,27 @@
-import loaders from './loaders.js';
+import { controlLocalStorage } from './utils/controlLocalStorage.js';
+import { loader } from './loaders.js';
+// import * as elements from './getElements.js';
 
-// import controllocalStorage from './utils/controlLocalStorage.js';
+import { api } from './api/api.js';
+import { reset } from './reset.js';
+import { newRequest } from '../../modules/users/service/newRequest.js';
 
-// import api from './api/api.js';
+var ControlLocalStorage = new controlLocalStorage();
+var { carregarApi } = new api();
+var Loader = loader;
 
-// import newRequest from '../../modules/users/service/newRequest.js';
-
-// var ControllocalStorage = new controllocalStorage();
-var Loaders = new loaders();
-// var Api = new api();
-// var NewRequest = new newRequest();
-
-const token = '76b54959748e921c86ddace498c9fa0272e7c82a';
-var usersLocalStorage = localStorageGetItem('usersData');
+var usersLocalStorage = ControlLocalStorage.localStorageGetItem(
+  'usersData',
+);
 if (!usersLocalStorage) {
   carregarApi().then(() => {
     reset();
     newRequest(usersData);
-    Loaders.loader(false);
+    Loader(false);
   });
 } else {
   carregarApi();
   reset();
   newRequest(usersLocalStorage);
-  Loaders.loader(false);
+  Loader(false);
 }

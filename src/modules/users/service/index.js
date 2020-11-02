@@ -3,3 +3,4 @@
 
 // var RequestUsers = new requestUsers();
 // var GerarUsers = new gerarUsers();
+var qtd = 0;

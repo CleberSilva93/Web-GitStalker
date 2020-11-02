@@ -1,7 +1,21 @@
-var campovazio = async () => {
+import { scroll } from './scroll.js';
+import { loader, loaderOrdem } from './loaders.js';
+import { ordenar } from './ordenar.js';
+import { reset } from './reset.js';
+import { controlLocalStorage } from './utils/controlLocalStorage.js';
+import { newRequest } from '../../modules/users/service/newRequest.js';
+import { ShowToast } from './toast.js';
+import { GerarUsers } from '../../modules/users/service/GerarUsers.js';
+import { filtro } from '../../modules/users/service/filtro.js';
+
+let ControlLocalStorage = new controlLocalStorage();
+
+let campovazio = async () => {
   reset();
   for (let i = 0; i < qtd; i++) {
-    let user = await localStorageGetItem(usersData[i].login);
+    let user = await ControlLocalStorage.localStorageGetItem(
+      usersData[i].login,
+    );
     await GerarUsers(user);
   }
 };

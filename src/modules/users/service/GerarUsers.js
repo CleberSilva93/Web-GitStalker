@@ -1,4 +1,4 @@
-const GerarUsers = (users) => {
+export const GerarUsers = (users) => {
   var user = GerarUser(users);
   divusers.appendChild(user.divuser);
 };

@@ -39,3 +39,7 @@ var city = document.getElementById('city');
 var email = document.getElementById('email');
 var createddata = document.getElementById('createddata');
 var lastupdated = document.getElementById('lastupdated');
+
+var qtd = 0;
+var usersData = [];
+var token = '76b54959748e921c86ddace498c9fa0272e7c82a';

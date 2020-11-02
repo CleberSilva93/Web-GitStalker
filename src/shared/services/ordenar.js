@@ -1,9 +1,15 @@
-const ordenar = async (tipo) => {
+import { controlLocalStorage } from './utils/controlLocalStorage.js';
+import { ApiUser } from '../../modules/users/service/apiUser.js';
+import { searchUser } from '../../modules/users/service/searchUser.js';
+
+var ControlLocalStorage = new controlLocalStorage();
+
+export const ordenar = async (tipo) => {
   await Promise.all(
     usersData.map(async (a) => {
-      if (!ControllocalStorage.localStorageGetItem(a.login)) {
-        let data = await userInfo(a);
-        ControllocalStorage.localStorageSetItem(data.login, data);
+      if (!ControlLocalStorage.localStorageGetItem(a.login)) {
+        let data = await ApiUser(a);
+        ControlLocalStorage.localStorageSetItem(data.login, data);
       }
     }),
   );
@@ -11,8 +17,8 @@ const ordenar = async (tipo) => {
     let { first, second } = searchUser(a, b);
     // alterar a propriedade para dinâmica para poder alterar conforme o tipo
     if (tipo === 'name') {
-      first.name = first.name == null ? first.login : first.name;
-      second.name = second.name == null ? second.login : second.name;
+      first.name = !first.name ? first.login : first.name;
+      second.name = !second.name ? second.login : second.name;
       if (first.name > second.name) {
         return 1;
       }
