@@ -3,19 +3,32 @@ import { GerarUsers } from './GerarUsers.js';
 import { newRequest } from './newRequest.js';
 import { request } from './request.js';
 import { searchUserApi } from './searchUser.js';
+import { loader } from '../../../shared/services/loaders.js';
 
 export const filtro = async (input) => {
+  loader(true);
+  let type;
+  if (
+    (user.checked == true && org.checked == true) ||
+    (user.checked == false && org.checked == false)
+  ) {
+    type = '';
+  } else if (user.checked == true) {
+    type = 'type:User';
+  } else if (org.checked == true) {
+    type = 'type:Organization';
+  }
   searchUserApi(
-    `https://api.github.com/search/users?q=${input.value}+location:piracicaba`,
+    `https://api.github.com/search/users?q=${input.value}+location:piracicaba+${type}`,
   ).then((data) => {
-    console.log('Esta aqui');
     reset();
-    data.items.forEach((user) => {
-      request(user).then((data) => {
-        console.log(data);
+    data.items.forEach(async (user) => {
+      await request(user).then((data) => {
         GerarUsers(data);
       });
     });
+    loader(false);
+    campoFiltro.focus();
   });
 
   // reset();
@@ -35,17 +48,17 @@ export const filtro = async (input) => {
   // };
   // if (input.value.length > 0) {
   //   for (let i = 0; i < usersData.length; i++) {
-  //     if (
-  //       (user.checked == true && org.checked == true) ||
-  //       (user.checked == false && org.checked == false)
-  //     ) {
-  //       console.log('Entrou');
-  //       filtrando('', i);
-  //     } else if (user.checked == true) {
-  //       filtrando('User', i);
-  //     } else if (org.checked == true) {
-  //       filtrando('Organization', i);
-  //     }
+  // if (
+  //   (user.checked == true && org.checked == true) ||
+  //   (user.checked == false && org.checked == false)
+  // ) {
+  //   console.log('Entrou');
+  //   filtrando('', i);
+  // } else if (user.checked == true) {
+  //   filtrando('User', i);
+  // } else if (org.checked == true) {
+  //   filtrando('Organization', i);
+  // }
   //   }
   // }
 };

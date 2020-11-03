@@ -21,25 +21,26 @@ let campovazio = async () => {
 };
 
 campoFiltro.addEventListener('keypress', (key) => {
-  loader(true);
+  // loader(true);
   if (key.which == 13) {
+    campoFiltro.blur();
     filtro(campoFiltro);
   }
   if (!campoFiltro.value) {
     campovazio();
   }
-  loader(false);
+  // loader(false);
 });
 
 campoFiltro.addEventListener('input', async () => {
-  loader(true);
+  // loader(true);
   if (!campoFiltro.value) {
     await campovazio();
     wrapperdws.style.display = 'none';
   } else {
     wrapperdws.style.display = 'block';
   }
-  loader(false);
+  // loader(false);
 });
 
 window.addEventListener('scroll', () => {
@@ -94,7 +95,8 @@ for (var el of radios) {
 }
 
 wrapperdws.addEventListener('click', async () => {
-  loader(true);
+  // loader(true);
+  campoFiltro.blur();
   await filtro(campoFiltro);
-  loader(false);
+  // loader(false);
 });
