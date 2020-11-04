@@ -3,7 +3,6 @@ import { ApiUser } from './apiUser.js';
 var ControllocalStorage = new controlLocalStorage();
 
 export const request = async (user) => {
-  console.log('Está disparando request');
   let data = !!ControllocalStorage.localStorageGetItem(user.login)
     ? (() => {
         return ControllocalStorage.localStorageGetItem(user.login);

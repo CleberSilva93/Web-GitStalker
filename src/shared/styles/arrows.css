@@ -1,20 +1,18 @@
 .arrow {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: fixed;
-  height: 100%;
-  right: 0;
-  top: 0;
-}
-
-div.arrow svg {
   height: 47px;
   width: 47px;
-  position: relative;
-  margin: 80px 180px 80px 0;
+  position: fixed;
+  right: 10%;
   transition: transform 0.2s, fill 2s;
   background-size: 20% 20%;
+}
+
+#arrowtop {
+  top: 60px;
+}
+
+#arrowdown {
+  bottom: 60px;
 }
 
 svg#arrowtop:hover {
@@ -24,10 +22,10 @@ svg#arrowtop:hover {
 
 @keyframes totop {
   from {
-    top: 0px;
+    top: 60px;
   }
   to {
-    top: 10px;
+    top: 70px;
   }
 }
 svg#arrowdown:hover {
@@ -37,17 +35,17 @@ svg#arrowdown:hover {
 
 @keyframes todown {
   from {
-    bottom: 0px;
+    bottom: 60px;
   }
   to {
-    bottom: 10px;
+    bottom: 70px;
   }
 }
 
-div.arrow svg:hover path {
+svg.arrow:hover path {
   fill: #ff9c65;
 }
 
-div.arrow svg:active path {
+svg.arrow:active path {
   fill: #e4c9bb;
 }

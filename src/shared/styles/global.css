@@ -9,6 +9,7 @@ body {
   overflow: visible;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  overflow: hidden;
 }
 
 a {
@@ -43,8 +44,10 @@ header svg {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   box-sizing: content-box;
-  width: 100%;
 }
 
 div#radiobuttontype {
@@ -118,7 +121,6 @@ div#ordenar {
   padding: 10px 5px 10px 0;
   background: white;
   margin-bottom: 17px;
-  /* height: 30px; */
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   display: inline-flex;
@@ -139,25 +141,6 @@ div#ordenar h2 {
   font-size: 15px;
   font-weight: 500;
   margin-left: 5px;
-}
-
-/* .loader {
-  position: fixed;
-  border: 20px solid #f3f3f3;
-  border-top: 20px solid #ff9c65;
-  border-radius: 50%;
-  z-index: 10;
-  left: 45%;
-  top: 45%;
-  width: 180px;
-  height: 180px;
-  animation: spin 3s linear infinite;
-  transition: visibility 100ms;
-} */
-
-div.loader img {
-  width: 80px;
-  height: 80px;
 }
 
 @keyframes spin {

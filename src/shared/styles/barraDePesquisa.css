@@ -104,7 +104,6 @@ div#barradepesquisa input:focus {
 .pulse::after {
   content: '';
   position: absolute;
-  /* border: 2px solid #8483826c; */
   box-shadow: inset 0 1px 1px 1px #e4c4b3;
   left: -20px;
   right: -20px;

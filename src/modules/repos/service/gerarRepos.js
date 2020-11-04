@@ -1,6 +1,6 @@
-const GerarRepos = (repos) => {
+export const GerarRepos = (repos) => {
   let repository = GerarRepo(repos);
-  repositories.appendChild(repository.divRepos);
+  repositories.appendChild(repository.link);
 };
 
 class ElementosRepos {
@@ -11,10 +11,14 @@ class ElementosRepos {
   nomeRepos = document.createElement('h2');
   dataRepos = document.createElement('p');
   starRepos = document.createElement('span');
+  link = document.createElement('a');
 }
 
 var GerarRepo = (dados) => {
   let repos = new ElementosRepos();
+
+  repos.link.setAttribute('href', dados.html_url);
+  repos.link.setAttribute('target', '_blank');
 
   repos.divRepos.classList.add('repositorio');
   repos.divInfo2.classList.add('stars');
@@ -38,6 +42,7 @@ var GerarRepo = (dados) => {
 
   repos.divRepos.appendChild(repos.divInfo1);
   repos.divRepos.appendChild(repos.divInfo2);
+  repos.link.appendChild(repos.divRepos);
 
   return repos;
 };

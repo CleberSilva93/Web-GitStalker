@@ -1,5 +1,5 @@
 export const loader = (show) => {
-  let loading = false;
+  loading = false;
   if (show) {
     body.style.overflow = 'hidden';
     divloading.style.display = 'block';
@@ -12,9 +12,12 @@ export const loader = (show) => {
 };
 
 export const loaderOrdem = (show) => {
+  loaderOrdemLoading = false;
   if (show) {
     document.getElementById('loading').style.display = 'block';
+    loaderOrdemLoading = true;
   } else {
     document.getElementById('loading').style.display = 'none';
+    loaderOrdemLoading = false;
   }
 };

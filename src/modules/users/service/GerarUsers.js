@@ -31,7 +31,7 @@ var GerarUser = (dados) => {
   user.divusergeral.classList.add('userinfogeral');
   user.divuser.classList.add('user');
   user.divuser.setAttribute('id', dados.url);
-  user.divuser.setAttribute('onClick', `openModal("${dados.login}")`);
+  user.divuser.setAttribute('onClick', `OpenModal("${dados.login}")`);
 
   user.link.setAttribute('href', dados.url);
   user.path.setAttributeNS(

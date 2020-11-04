@@ -2,7 +2,6 @@
   visibility: hidden;
   min-width: 200px;
   margin-left: -125px;
-  background-color: #ff9b65d0;
   color: #fff;
   text-align: center;
   border-radius: 2px;
@@ -17,8 +16,15 @@
   border-radius: 10px;
 }
 
-#snackbar.show {
+#snackbar.shownot {
   visibility: visible;
+  background-color: #ff9b65d0;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+#snackbar.showerror {
+  visibility: visible;
+  background-color: #ff6565d0;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }

@@ -1,4 +1,4 @@
-const apiRepos = async (dados) => {
+export const apiRepos = async (dados) => {
   const data = await fetch(`${dados}`, {
     method: 'GET',
     headers: {

@@ -2,12 +2,9 @@
   position: relative;
   background-color: white;
   padding: 13px;
-  width: 100%;
-  height: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  display: inline-flex;
-  align-items: center;
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
   transition: 1s all;
   box-sizing: border-box;
 }
@@ -37,23 +34,20 @@ div.userinfo {
   position: relative;
   display: flex;
   flex-direction: row;
-  margin-left: 10px;
-}
-
-div.userinfogeral {
-  position: relative;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px;
 }
 
 div.userinfogeral div {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   line-height: 20px;
 }
 
 .user svg {
-  position: absolute;
+  position: relative;
   height: 15px;
   width: 15px;
-  left: 580px;
-  bottom: 49px;
 }

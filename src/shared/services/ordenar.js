@@ -5,54 +5,68 @@ import { searchUser } from '../../modules/users/service/searchUser.js';
 var ControlLocalStorage = new controlLocalStorage();
 
 export const ordenar = async (tipo) => {
-  await Promise.all(
-    usersData.map(async (a) => {
-      if (!ControlLocalStorage.localStorageGetItem(a.login)) {
-        let data = await ApiUser(a);
-        ControlLocalStorage.localStorageSetItem(data.login, data);
+  try {
+    await Promise.all(
+      usersData.map(async (a) => {
+        if (!ControlLocalStorage.localStorageGetItem(a.login)) {
+          let data = await ApiUser(a);
+          ControlLocalStorage.localStorageSetItem(data.login, data);
+        }
+      }),
+    );
+    usersData.sort((a, b) => {
+      let { first, second } = searchUser(a, b);
+      switch (tipo) {
+        case 'name': {
+          first.name = !!first.name ? first.name : first.login;
+          second.name = !!second.name ? second.name : second.login;
+          if (first.name > second.name) {
+            return 1;
+          }
+          if (first.name < second.name) {
+            return -1;
+          }
+          return 0;
+        }
+        case 'data': {
+          if (first.created_at > second.created_at) {
+            return 1;
+          }
+          if (first.created_at < second.created_at) {
+            return -1;
+          }
+          return 0;
+        }
+
+        case 'followers': {
+          if (first.followers < second.followers) {
+            return 1;
+          }
+          if (first.followers > second.followers) {
+            return -1;
+          }
+          return 0;
+        }
+        case 'repos': {
+          if (first.public_repos < second.public_repos) {
+            return 1;
+          }
+          if (first.public_repos > second.public_repos) {
+            return -1;
+          }
+          return 0;
+        }
+        default: {
+          console.log('Houve um erro!');
+        }
       }
-    }),
-  );
-  usersData.sort((a, b) => {
-    let { first, second } = searchUser(a, b);
-    // alterar a propriedade para dinâmica para poder alterar conforme o tipo
-    if (tipo === 'name') {
-      first.name = !first.name ? first.login : first.name;
-      second.name = !second.name ? second.login : second.name;
-      if (first.name > second.name) {
-        return 1;
-      }
-      if (first.name < second.name) {
-        return -1;
-      }
-      return 0;
-    }
-    if (tipo === 'data') {
-      if (first.created_at > second.created_at) {
-        return 1;
-      }
-      if (first.created_at < second.created_at) {
-        return -1;
-      }
-      return 0;
-    }
-    if (tipo === 'followers') {
-      if (first.followers < second.followers) {
-        return 1;
-      }
-      if (first.followers > second.followers) {
-        return -1;
-      }
-      return 0;
-    }
-    if (tipo === 'repos') {
-      if (first.public_repos < second.public_repos) {
-        return 1;
-      }
-      if (first.public_repos > second.public_repos) {
-        return -1;
-      }
-      return 0;
-    }
-  });
+    });
+  } catch (error) {
+    spinner.style.display = 'none';
+    spinnerText.style.display = 'block';
+    spinnerText.style.color = 'red';
+    spinnerText.textContent =
+      'Houve um erro, atualize a página. Aperte (F5).';
+    console.log(error);
+  }
 };

@@ -37,8 +37,10 @@
 .spinner-wrapper {
   max-width: 100%;
   width: 800px;
-  height: 30px;
+  height: 92px;
+  top: 144px;
   box-sizing: border-box;
+  border: 1px solid black;
   background: rgba(255, 255, 255, 0.965);
   position: absolute;
   display: flex;
@@ -51,7 +53,7 @@
 
 .spinner-text {
   position: relative;
-  font-size: 12px;
+  font-size: 16px;
   font-family: 'Roboto', sans-serif;
   color: #bbb;
   margin-left: 5px;
@@ -61,7 +63,7 @@
 .spinner {
   display: block;
   position: relative;
-  border: 12px solid #848382;
+  border: 35px solid #afafaf;
   width: 1px;
   height: 1px;
   border-left-color: transparent;
@@ -69,9 +71,9 @@
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  -webkit-animation: spin 1.5s infinite;
-  -moz-animation: spin 1.5s infinite;
-  animation: spin 1.5s infinite;
+  -webkit-animation: spin 2.5s infinite;
+  -moz-animation: spin 2.5s infinite;
+  animation: spin 2.5s infinite;
 }
 
 @-webkit-keyframes spin {

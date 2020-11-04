@@ -1,7 +1,9 @@
 export class controlLocalStorage {
   localStorageGetItem = (info) => {
-    let dados = JSON.parse(localStorage.getItem(info));
-    return dados;
+    if (!!localStorage.getItem(info)) {
+      let dados = JSON.parse(localStorage.getItem(info));
+      return dados;
+    }
   };
 
   localStorageSetItem = (key, dados) => {

@@ -2,26 +2,22 @@ import { scroll } from './scroll.js';
 import { loader, loaderOrdem } from './loaders.js';
 import { ordenar } from './ordenar.js';
 import { reset } from './reset.js';
-import { controlLocalStorage } from './utils/controlLocalStorage.js';
 import { newRequest } from '../../modules/users/service/newRequest.js';
+import { request } from '../../modules/users/service/request.js';
 import { ShowToast } from './toast.js';
 import { GerarUsers } from '../../modules/users/service/GerarUsers.js';
 import { filtro } from '../../modules/users/service/filtro.js';
 
-let ControlLocalStorage = new controlLocalStorage();
-
 let campovazio = async () => {
   reset();
   for (let i = 0; i < qtd; i++) {
-    let user = await ControlLocalStorage.localStorageGetItem(
-      usersData[i].login,
-    );
-    await GerarUsers(user);
+    await request(usersData[i]).then((data) => {
+      GerarUsers(data);
+    });
   }
 };
 
 campoFiltro.addEventListener('keypress', (key) => {
-  // loader(true);
   if (key.which == 13) {
     campoFiltro.blur();
     filtro(campoFiltro);
@@ -29,18 +25,15 @@ campoFiltro.addEventListener('keypress', (key) => {
   if (!campoFiltro.value) {
     campovazio();
   }
-  // loader(false);
 });
 
 campoFiltro.addEventListener('input', async () => {
-  // loader(true);
   if (!campoFiltro.value) {
     await campovazio();
     wrapperdws.style.display = 'none';
   } else {
     wrapperdws.style.display = 'block';
   }
-  // loader(false);
 });
 
 window.addEventListener('scroll', () => {
@@ -54,7 +47,8 @@ window.addEventListener('scroll', () => {
   if (
     scrollPos === true &&
     !campoFiltro.value &&
-    qtd + 8 < usersData.length
+    qtd + 8 < usersData.length &&
+    !loading
   ) {
     scroll();
   }
@@ -88,15 +82,13 @@ for (var el of radios) {
       reset();
       qtd = 0;
       newRequest(usersData);
-      loaderOrdem(false);
-      ShowToast(`Ordenado por ${this.id}`);
+
+      ShowToast(`Ordenado por ${this.id}`, 'notification');
     });
   });
 }
 
 wrapperdws.addEventListener('click', async () => {
-  // loader(true);
   campoFiltro.blur();
   await filtro(campoFiltro);
-  // loader(false);
 });
