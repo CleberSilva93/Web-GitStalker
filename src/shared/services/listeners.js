@@ -77,12 +77,12 @@ org.addEventListener('click', async () => {
 for (var el of radios) {
   el.addEventListener('click', function () {
     campoFiltro.value = '';
+    wrapperdws.style.display = 'none';
     loaderOrdem(true);
     ordenar(this.value).then(() => {
       reset();
       qtd = 0;
       newRequest(usersData);
-
       ShowToast(`Ordenado por ${this.id}`, 'notification');
     });
   });
