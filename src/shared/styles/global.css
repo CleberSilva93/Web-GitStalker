@@ -6,10 +6,16 @@ body {
   margin: auto;
   width: 800px;
   background-color: #848382;
-  overflow: visible;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  overflow: hidden;
+}
+
+@media screen and (max-width: 100px) {
+  body {
+    background: #f90;
+    /* display: flex; */
+    width: 400px;
+  }
 }
 
 a {

@@ -1,9 +1,9 @@
 import { reset } from '../../../shared/services/reset.js';
 import { GerarUsers } from './GerarUsers.js';
-import { newRequest } from './newRequest.js';
 import { request } from './request.js';
 import { searchUserApi } from './searchUser.js';
 import { loader } from '../../../shared/services/loaders.js';
+import { ShowToast } from '../../../shared/services/toast.js';
 
 export const filtro = async (input) => {
   loader(true);
@@ -22,11 +22,15 @@ export const filtro = async (input) => {
     `https://api.github.com/search/users?q=${input.value}+location:piracicaba+${type}`,
   ).then((data) => {
     reset();
-    data.items.forEach(async (user) => {
-      await request(user).then((data) => {
-        GerarUsers(data);
+    if (data.items.length > 0) {
+      data.items.forEach(async (user) => {
+        await request(user).then((data) => {
+          GerarUsers(data);
+        });
       });
-    });
+    } else {
+      ShowToast('Não foi encontrado!', 'notification');
+    }
     loader(false);
     campoFiltro.focus();
   });
